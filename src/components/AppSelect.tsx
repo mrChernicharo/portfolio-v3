@@ -13,7 +13,7 @@ export default function AppSelect(props: {
   const [value, setValue] = useState(props.defaultValue);
 
   return (
-    <div className="relative w-72">
+    <div className="relative min-w-[200px]">
       <label className="absolute z-10 text-[10px] top-[5px] left-[12px] opacity-80">{props.label}</label>
       <Listbox
         value={value}
@@ -43,18 +43,18 @@ export default function AppSelect(props: {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-base-100 py-1 text-base shadow-lg ring-1 ring-accent ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute mt-1 max-h-60 min-w-[200px] overflow-auto rounded-md bg-base-200 py-1 text-base shadow-lg ring-1 ring-accent ring-opacity-5 focus:outline-none sm:text-sm">
               {items.map((item, personIdx) => (
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? "bg-accent" : "bg-base-100"}`
+                    `relative cursor-default select-none py-2 ${active ? "bg-accent" : "bg-base-100"}`
                   }
                   value={item}
                 >
                   {({ selected }) => (
                     <>
-                      <span className={`block truncate ${selected ? "font-medium" : "font-normal"}`}>{capitalize(item)}</span>
+                      <span className={`block truncate text-left ml-10 ${selected ? "font-medium" : "font-normal"}`}>{capitalize(item)}</span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-accent">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
