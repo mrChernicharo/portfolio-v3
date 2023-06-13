@@ -3,6 +3,7 @@ import { APP_THEMES } from "./themes";
 import { useFetch } from "./useFetch";
 import { NavBar } from "./components/NavBar";
 import { useThemeContext } from "./context/ThemeContext";
+import TypingAnimation from "./components/TypingAnimation";
 
 export interface Job {
   id: string;
@@ -29,11 +30,13 @@ function App() {
     <div data-theme={theme}>
       <NavBar />
       <h1 className="text-[2rem] font-semibold">Hello World</h1>
-      {theme}
 
       <div className="text-primary text-xl font-bold">hello</div>
       <div className="text-secondary text-xl font-bold">hello</div>
       <div className="text-accent text-xl font-bold">hello</div>
+
+
+      <TypingAnimation />
 
       {/* <div className="flex flex-col">
         {themes.map((theme) => (
