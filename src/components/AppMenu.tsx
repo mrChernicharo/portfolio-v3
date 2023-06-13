@@ -30,14 +30,14 @@ export default function AppMenu() {
             <div className="px-1 py-1">
               <Menu.Item>
                 {({ active }) => (
-                  <button className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${active ? "bg-secondary" : "bg-base-300"}`}>
+                  <div className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${active ? "bg-secondary" : "bg-base-300"}`}>
                     <AppSelect
                       label="theme"
                       defaultValue={theme}
                       items={APP_THEMES}
                       onChange={(val) => setTheme(val as AppTheme)}
                     />
-                  </button>
+                  </div>
                 )}
               </Menu.Item>
             </div>

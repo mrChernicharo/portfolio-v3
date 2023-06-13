@@ -68,7 +68,8 @@ const colorScheme: CodeColorInstruction[][] = [
     { color: "accent", start: 8, end: 57 },
     { color: "white", start: 58, end: 61 },
   ],
-  [ // 6
+  [
+    // 6
     { color: "primary", start: 0, end: 8 },
     { color: "secondary", start: 9, end: 23 },
     { color: "white", start: 24, end: 27 },
@@ -76,14 +77,15 @@ const colorScheme: CodeColorInstruction[][] = [
   [{ color: "white", start: 0, end: 2 }],
 ];
 
+// this looks horrible, but the trailing empty spaces are essential to "pause" the cursor for a bit at the end of each line
 const codeLines = [
-  "import { FelipeChernicharo } from 'software-development';",
-  "var helloStranger = `welcome to my ${Portfolio}!`;",
-  "soGladYouHere() {",
-  "  var take = 'a look around';",
-  "  var check = ['my background', 'personal projects', 'tech skills'];",
-  "  { see: 'a little bit of my work as a programmer, and...' };",
-  "  return wheneverYouLike();",
+  "import { FelipeChernicharo } from 'software-development';                                  ",
+  "var helloStranger = `welcome to my ${Portfolio}!`;                                  ",
+  "soGladYouHere() {                                  ",
+  "  var take = 'a look around';                                  ",
+  "  var check = ['my background', 'personal projects', 'tech skills'];                                  ",
+  "  { see: 'a little bit of my work as a programmer, and...' };                                  ",
+  "  return wheneverYouLike();  ",
   "}; ",
 ];
 
@@ -96,9 +98,7 @@ function getCharColor(id: string) {
     objIdx++;
   }
 
-  return colorRow[objIdx]?.color || "blue";
-  // return colorRow[objIdx].color;
-  // if (col >= colorRow[objIdx].start && col <= colorRow[objIdx].end) {}
+  return colorRow[objIdx]?.color || "white";
 }
 
 const codeTable: CodeChar[][] = [];
@@ -119,7 +119,7 @@ export default function TypingAnimation() {
   useEffect(() => {
     interval.current = setInterval(() => {
       setCursorIdx((prev) => prev + 1);
-    }, 20);
+    }, 40);
 
     return () => {
       clearInterval(interval.current);
@@ -138,9 +138,9 @@ export default function TypingAnimation() {
     }
   }, [cursorIdx]);
 
-  useEffect(() => {
-    console.log({ cursorIdx, cursorRow });
-  }, [cursorIdx, cursorRow]);
+  // useEffect(() => {
+  //   console.log({ cursorIdx, cursorRow });
+  // }, [cursorIdx, cursorRow]);
 
   return (
     <div>
@@ -149,14 +149,17 @@ export default function TypingAnimation() {
           {line.map((char, j) => {
             const [row, col] = char.id.split("-").map(Number);
             if (cursorIdx === col && cursorRow === row) {
-              return <div className="inline-block w-2 h-4 bg-white"></div>;
+              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-white"></div>;
             } else if (cursorRow < row || (cursorRow === row && cursorIdx < col)) {
-              return <div className="inline-block w-2 h-4"></div>;
+              return <div key={char.id} className="inline-block w-2 h-4"></div>;
             } else if (row === 7 && col === 2) {
-              return <div className="inline-block w-2 h-4 bg-white animate-pulse"></div>;
+              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-white"></div>;
             } else {
               return (
-                <span key={char.id} className={`text-${char.color} ${char.char === " " && j < 3 ? "ml-2" : ""} `}>
+                <span
+                  key={char.id}
+                  className={`inline-block text-${char.color} ${char.char === " " && j < 3 ? "ml-2" : ""}`}
+                >
                   {char.char}
                 </span>
               );

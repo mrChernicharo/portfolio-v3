@@ -31,9 +31,9 @@ function App() {
       <NavBar />
       <h1 className="text-[2rem] font-semibold">Hello World</h1>
 
-      <div className="text-primary text-xl font-bold">hello</div>
+      {/* <div className="text-primary text-xl font-bold">hello</div>
       <div className="text-secondary text-xl font-bold">hello</div>
-      <div className="text-accent text-xl font-bold">hello</div>
+      <div className="text-accent text-xl font-bold">hello</div> */}
 
 
       <TypingAnimation />

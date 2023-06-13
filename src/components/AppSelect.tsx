@@ -43,7 +43,7 @@ export default function AppSelect(props: {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="absolute mt-1 max-h-60 min-w-[200px] overflow-auto rounded-md bg-base-200 py-1 text-base shadow-lg ring-1 ring-accent ring-opacity-5 focus:outline-none sm:text-sm">
+            <Listbox.Options className="absolute z-20 mt-1 max-h-60 min-w-[200px] overflow-auto rounded-md bg-base-200 py-1 text-base shadow-lg ring-1 ring-accent ring-opacity-5 focus:outline-none sm:text-sm">
               {items.map((item, personIdx) => (
                 <Listbox.Option
                   key={personIdx}
