@@ -119,7 +119,7 @@ export default function TypingAnimation() {
   useEffect(() => {
     interval.current = setInterval(() => {
       setCursorIdx((prev) => prev + 1);
-    }, 40);
+    }, 20);
 
     return () => {
       clearInterval(interval.current);
@@ -158,7 +158,7 @@ export default function TypingAnimation() {
               return (
                 <span
                   key={char.id}
-                  className={`inline-block text-${char.color} ${char.char === " " && j < 3 ? "ml-2" : ""}`}
+                  className={`text-${char.color} ${char.char === " " && j < 3 ? "ml-2" : ""}`}
                 >
                   {char.char}
                 </span>

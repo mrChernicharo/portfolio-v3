@@ -6,7 +6,7 @@ import AppSelect from "./AppSelect";
 
 export function NavBar() {
   return (
-    <div className="p-2 flex justify-between items-center bg-secondary">
+    <div className="p-2 flex justify-between items-center bg-secondary text-secondary-content">
       <div>Felipe Chernicharo</div>
       <AppMenu />
 

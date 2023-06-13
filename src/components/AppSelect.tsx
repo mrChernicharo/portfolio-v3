@@ -14,7 +14,7 @@ export default function AppSelect(props: {
 
   return (
     <div className="relative min-w-[200px]">
-      <label className="absolute z-10 text-[10px] top-[5px] left-[12px] opacity-80">{props.label}</label>
+      <label className="absolute z-10 text-[10px] top-[5px] left-[12px] text-base-content opacity-80">{props.label}</label>
       <Listbox
         value={value}
         onChange={(val) => {
@@ -27,7 +27,8 @@ export default function AppSelect(props: {
             tabIndex={0}
             className="relative w-full cursor-default rounded-lg bg-base-100 py-2 pl-3 pr-10 text-left shadow-md 
             focus:outline-none focus-visible:border-accent focus-visible:ring-2 focus-visible:ring-base-100 
-            focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-accent sm:text-sm"
+            focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-accent sm:text-sm
+            text-base-content"
           >
             <span className="block truncate mt-[0.5rem]">{capitalize(value)}</span>
             <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
@@ -48,7 +49,7 @@ export default function AppSelect(props: {
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 ${active ? "bg-accent" : "bg-base-100"}`
+                    `relative cursor-default select-none py-2 ${active ? "bg-accent text-accent-content" : "bg-base-100 text-base-content"}`
                   }
                   value={item}
                 >
