@@ -19,62 +19,62 @@ const colorScheme: CodeColorInstruction[][] = [
   [
     // 0
     { color: "primary", start: 0, end: 5 },
-    { color: "white", start: 6, end: 28 },
+    { color: "base-content opacity-80", start: 6, end: 28 },
     { color: "primary", start: 29, end: 33 },
     { color: "accent", start: 34, end: 55 },
   ],
   [
     // 1
     { color: "primary", start: 0, end: 2 },
-    { color: "white", start: 3, end: 17 },
+    { color: "base-content opacity-80", start: 3, end: 17 },
     { color: "primary", start: 18, end: 18 },
-    { color: "white", start: 19, end: 19 },
+    { color: "base-content opacity-80", start: 19, end: 19 },
     { color: "accent", start: 20, end: 34 },
     { color: "primary", start: 35, end: 36 },
-    { color: "white", start: 37, end: 45 },
+    { color: "base-content opacity-80", start: 37, end: 45 },
     { color: "primary", start: 46, end: 46 },
     { color: "accent", start: 47, end: 48 },
-    { color: "white", start: 49, end: 50 },
+    { color: "base-content opacity-80", start: 49, end: 50 },
   ],
   [
     { color: "secondary", start: 0, end: 12 },
-    { color: "white", start: 13, end: 15 },
+    { color: "base-content opacity-80", start: 13, end: 15 },
   ],
   [
     // 3
-    { color: "white", start: 0, end: 1 },
+    { color: "base-content opacity-80", start: 0, end: 1 },
     { color: "primary", start: 2, end: 5 },
-    { color: "white", start: 6, end: 9 },
+    { color: "base-content opacity-80", start: 6, end: 9 },
     { color: "primary", start: 10, end: 12 },
     { color: "accent", start: 13, end: 27 },
-    { color: "white", start: 28, end: 28 },
+    { color: "base-content opacity-80", start: 28, end: 28 },
   ],
   [
     // 4
-    { color: "white", start: 0, end: 1 },
+    { color: "base-content opacity-80", start: 0, end: 1 },
     { color: "primary", start: 2, end: 5 },
-    { color: "white", start: 6, end: 11 },
+    { color: "base-content opacity-80", start: 6, end: 11 },
     { color: "primary", start: 12, end: 12 },
-    { color: "white", start: 13, end: 14 },
+    { color: "base-content opacity-80", start: 13, end: 14 },
     { color: "accent", start: 15, end: 29 },
-    { color: "white", start: 30, end: 31 },
+    { color: "base-content opacity-80", start: 30, end: 31 },
     { color: "accent", start: 32, end: 50 },
-    { color: "white", start: 51, end: 51 },
+    { color: "base-content opacity-80", start: 51, end: 51 },
     { color: "accent", start: 52, end: 65 },
   ],
   [
-    { color: "white", start: 0, end: 6 },
+    { color: "base-content opacity-80", start: 0, end: 6 },
     { color: "primary", start: 7, end: 7 },
     { color: "accent", start: 8, end: 57 },
-    { color: "white", start: 58, end: 61 },
+    { color: "base-content opacity-80", start: 58, end: 61 },
   ],
   [
     // 6
     { color: "primary", start: 0, end: 8 },
     { color: "secondary", start: 9, end: 23 },
-    { color: "white", start: 24, end: 27 },
+    { color: "base-content opacity-80", start: 24, end: 27 },
   ],
-  [{ color: "white", start: 0, end: 2 }],
+  [{ color: "base-content opacity-80", start: 0, end: 2 }],
 ];
 
 // this looks horrible, but the trailing empty spaces are essential to "pause" the cursor for a bit at the end of each line
@@ -98,7 +98,7 @@ function getCharColor(id: string) {
     objIdx++;
   }
 
-  return colorRow[objIdx]?.color || "white";
+  return colorRow[objIdx]?.color || "base-content opacity-80";
 }
 
 const codeTable: CodeChar[][] = [];
@@ -149,12 +149,17 @@ export default function TypingAnimation() {
           {line.map((char, j) => {
             const [row, col] = char.id.split("-").map(Number);
             if (cursorIdx === col && cursorRow === row) {
-              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-white"></div>;
+              // moving cursor
+              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-base-content opacity-80"></div>;
             } else if (cursorRow < row || (cursorRow === row && cursorIdx < col)) {
+              // text truncation
               return <div key={char.id} className="inline-block w-2 h-4"></div>;
-            } else if (row === 7 && col === 2) {
-              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-white"></div>;
+            } 
+            else if (row === 7 && col === 2) {
+              // final cursor
+              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-base-content opacity-80"></div>;
             } else {
+              // indentation
               return (
                 <span
                   key={char.id}
