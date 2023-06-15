@@ -8,7 +8,7 @@ export function useFetch<T>(url: string) {
   useEffect(() => {
     setLoading(true);
 
-    fetch(url)
+    fetch(url, { cache: "force-cache" })
       .then((res) => res.json())
       .then((data: T) => {
         setData(data);

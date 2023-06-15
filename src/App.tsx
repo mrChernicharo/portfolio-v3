@@ -5,72 +5,24 @@ import { NavBar } from "./components/NavBar";
 import { useThemeContext } from "./context/ThemeContext";
 import TypingAnimation from "./components/TypingAnimation";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
 
 const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <div>
-        <NavBar />
-        <h1 className="text-[2rem] font-semibold">Hello World</h1>
-        <TypingAnimation />
-      </div>
-    ),
-    errorElement: <div>404</div>,
-  },
-  {
-    path: "/projects",
-    element: (
-      <div>
-        <NavBar />
-        Hello projects!
-      </div>
-    ),
-  },
-  {
-    path: "/about",
-    element: (
-      <div>
-        <NavBar />
-        Hello about!
-      </div>
-    ),
-  },
-  {
-    path: "/contact",
-    element: (
-      <div>
-        <NavBar />
-        Hello contact!
-      </div>
-    ),
-  },
+  { path: "/", element: <Home />, errorElement: <div>404</div> },
+  { path: "/projects", element: <Projects /> },
+  { path: "/about", element: <About /> },
+  { path: "/contact", element: <Contact /> },
 ]);
-
-export interface Job {
-  id: string;
-  title: string;
-  type: string;
-  company: string;
-  company_img_url: string;
-  company_website_url: string;
-  company_location: string;
-  company_address: string;
-  started_at: string;
-  ended_at: string;
-  description: string;
-}
 
 function App() {
   const { theme } = useThemeContext();
 
-  const { data, loading, error } = useFetch<{ jobs: Job[] }>("https://string7-data-api.onrender.com/jobs");
-
   return (
     <div data-theme={theme}>
       <RouterProvider router={router} />
-
-      {/*  */}
     </div>
   );
 }
