@@ -11,7 +11,6 @@ function About(props: Props) {
 
   return (
     <div>
-      <NavBar />
       Hello about!
       <h1>Jobs</h1>
       <ul>

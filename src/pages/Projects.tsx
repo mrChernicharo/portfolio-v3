@@ -8,7 +8,6 @@ function Projects(props: Props) {
 
   return (
     <div>
-      <NavBar />
       Hello Projects!
     </div>
   );

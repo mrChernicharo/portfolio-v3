@@ -8,7 +8,6 @@ function Contact(props: Props) {
 
   return (
     <div>
-      <NavBar />
       Hello Contact!
     </div>
   );
