@@ -1,5 +1,3 @@
-import React from "react";
-import { NavBar } from "../components/NavBar";
 import { useFetch } from "../useFetch";
 import { Job } from "../helpers/types";
 

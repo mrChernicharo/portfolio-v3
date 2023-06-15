@@ -12,69 +12,66 @@ type CodeChar = {
   color: string;
 };
 
-// accent -> yellow
-// primary -> red
-// secondary -> purple
 const colorScheme: CodeColorInstruction[][] = [
   [
     // 0
-    { color: "primary", start: 0, end: 5 },
-    { color: "base-content opacity-80", start: 6, end: 28 },
-    { color: "primary", start: 29, end: 33 },
+    { color: "secondary", start: 0, end: 5 },
+    { color: "primary", start: 6, end: 28 },
+    { color: "secondary", start: 29, end: 33 },
     { color: "accent", start: 34, end: 55 },
   ],
   [
     // 1
-    { color: "primary", start: 0, end: 2 },
-    { color: "base-content opacity-80", start: 3, end: 17 },
-    { color: "primary", start: 18, end: 18 },
-    { color: "base-content opacity-80", start: 19, end: 19 },
+    { color: "secondary", start: 0, end: 2 },
+    { color: "primary", start: 3, end: 17 },
+    { color: "secondary", start: 18, end: 18 },
+    { color: "primary", start: 19, end: 19 },
     { color: "accent", start: 20, end: 34 },
-    { color: "primary", start: 35, end: 36 },
-    { color: "base-content opacity-80", start: 37, end: 45 },
-    { color: "primary", start: 46, end: 46 },
+    { color: "secondary", start: 35, end: 36 },
+    { color: "primary", start: 37, end: 45 },
+    { color: "secondary", start: 46, end: 46 },
     { color: "accent", start: 47, end: 48 },
-    { color: "base-content opacity-80", start: 49, end: 50 },
+    { color: "primary", start: 49, end: 50 },
   ],
   [
     { color: "secondary", start: 0, end: 12 },
-    { color: "base-content opacity-80", start: 13, end: 15 },
+    { color: "primary", start: 13, end: 15 },
   ],
   [
     // 3
-    { color: "base-content opacity-80", start: 0, end: 1 },
-    { color: "primary", start: 2, end: 5 },
-    { color: "base-content opacity-80", start: 6, end: 9 },
-    { color: "primary", start: 10, end: 12 },
+    { color: "primary", start: 0, end: 1 },
+    { color: "secondary", start: 2, end: 5 },
+    { color: "primary", start: 6, end: 9 },
+    { color: "secondary", start: 10, end: 12 },
     { color: "accent", start: 13, end: 27 },
-    { color: "base-content opacity-80", start: 28, end: 28 },
+    { color: "primary", start: 28, end: 28 },
   ],
   [
     // 4
-    { color: "base-content opacity-80", start: 0, end: 1 },
-    { color: "primary", start: 2, end: 5 },
-    { color: "base-content opacity-80", start: 6, end: 11 },
-    { color: "primary", start: 12, end: 12 },
-    { color: "base-content opacity-80", start: 13, end: 14 },
+    { color: "primary", start: 0, end: 1 },
+    { color: "secondary", start: 2, end: 5 },
+    { color: "primary", start: 6, end: 11 },
+    { color: "secondary", start: 12, end: 12 },
+    { color: "primary", start: 13, end: 14 },
     { color: "accent", start: 15, end: 29 },
-    { color: "base-content opacity-80", start: 30, end: 31 },
+    { color: "primary", start: 30, end: 31 },
     { color: "accent", start: 32, end: 50 },
-    { color: "base-content opacity-80", start: 51, end: 51 },
+    { color: "primary", start: 51, end: 51 },
     { color: "accent", start: 52, end: 65 },
   ],
   [
-    { color: "base-content opacity-80", start: 0, end: 6 },
-    { color: "primary", start: 7, end: 7 },
+    { color: "primary", start: 0, end: 6 },
+    { color: "secondary", start: 7, end: 7 },
     { color: "accent", start: 8, end: 57 },
-    { color: "base-content opacity-80", start: 58, end: 61 },
+    { color: "primary", start: 58, end: 61 },
   ],
   [
     // 6
     { color: "primary", start: 0, end: 8 },
     { color: "secondary", start: 9, end: 23 },
-    { color: "base-content opacity-80", start: 24, end: 27 },
+    { color: "primary", start: 24, end: 27 },
   ],
-  [{ color: "base-content opacity-80", start: 0, end: 2 }],
+  [{ color: "primary", start: 0, end: 2 }],
 ];
 
 // this looks horrible, but the trailing empty spaces are essential to "pause" the cursor for a bit at the end of each line
@@ -119,7 +116,7 @@ export default function TypingAnimation() {
   useEffect(() => {
     interval.current = setInterval(() => {
       setCursorIdx((prev) => prev + 1);
-    }, 20);
+    }, 50);
 
     return () => {
       clearInterval(interval.current);
@@ -138,40 +135,36 @@ export default function TypingAnimation() {
     }
   }, [cursorIdx]);
 
-  // useEffect(() => {
-  //   console.log({ cursorIdx, cursorRow });
-  // }, [cursorIdx, cursorRow]);
-
   return (
-    <div>
-      {codeTable.map((line, i) => (
-        <div key={i}>
-          {line.map((char, j) => {
-            const [row, col] = char.id.split("-").map(Number);
-            if (cursorIdx === col && cursorRow === row) {
-              // moving cursor
-              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-base-content opacity-80"></div>;
-            } else if (cursorRow < row || (cursorRow === row && cursorIdx < col)) {
-              // text truncation
-              return <div key={char.id} className="inline-block w-2 h-4"></div>;
-            } 
-            else if (row === 7 && col === 2) {
-              // final cursor
-              return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-base-content opacity-80"></div>;
-            } else {
-              // indentation
-              return (
-                <span
-                  key={char.id}
-                  className={`text-${char.color} ${char.char === " " && j < 3 ? "ml-2" : ""}`}
-                >
-                  {char.char}
-                </span>
-              );
-            }
-          })}
+    <div className="mockup-window bg-primary max-w-[900px] mx-auto">
+      <div className="bg-base-300">
+        <div className="font-mono text-lg h-[450px] w-[900px] flex flex-col justify-center pl-20">
+          {codeTable.map((line, i) => (
+            <div className={`py-2 animate-pulse`} key={i}>
+              {line.map((char, j) => {
+                const [row, col] = char.id.split("-").map(Number);
+                if (cursorIdx === col && cursorRow === row) {
+                  // moving cursor
+                  return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-base-content opacity-80"></div>;
+                } else if (cursorRow < row || (cursorRow === row && cursorIdx < col)) {
+                  // text truncation
+                  return <div key={char.id} className="inline-block w-2 h-4"></div>;
+                } else if (row === 7 && col === 2) {
+                  // final cursor
+                  return <div key={char.id} className="inline-block w-2 h-5 -mb-1 bg-base-content opacity-80"></div>;
+                } else {
+                  // indentation
+                  return (
+                    <span key={char.id} className={`text-${char.color} ${char.char === " " && j < 3 ? "ml-2" : ""}`}>
+                      {char.char}
+                    </span>
+                  );
+                }
+              })}
+            </div>
+          ))}
         </div>
-      ))}
+      </div>
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import { NavBar } from "./NavBar";
 
 interface Props {
@@ -12,7 +12,7 @@ function Layout(props: Props) {
     <div>
       <NavBar />
 
-      <div className="max-w-[900px]  mx-auto border-2 border-dashed border-red-500">
+      <div className="">
         {children}
       </div>
     </div>
