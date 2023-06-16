@@ -7,10 +7,17 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
   return (
     <div>
       <HomeHero />
-      
+
       <TypingAnimation />
 
-      {/* <HomeCardGroup /> */}
+      <div>Some Projects</div>
+      <hr />
+      <div>Experience</div>
+      <hr />
+      <div>Why me?</div>
+      <hr />
+      <div>Achievements</div>
+      <hr />
     </div>
   );
 };

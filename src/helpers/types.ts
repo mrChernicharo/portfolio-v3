@@ -11,3 +11,14 @@ export interface Job {
   ended_at: string;
   description: string;
 }
+
+export interface Project {
+  id: string;
+  name: string;
+  site_url: string;
+  github_url: string;
+  created_at: string;
+  updated_at: string;
+  description: string;
+  language: string;
+}
