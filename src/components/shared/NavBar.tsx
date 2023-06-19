@@ -5,7 +5,7 @@ export function NavBar() {
   return (
     <>
       {/* nav-bar */}
-      <div className="fixed top-0 w-full h-16 px-6 flex justify-between items-center bg-secondary text-secondary-content">
+      <div className="fixed z-10 top-0 w-full h-16 px-6 flex justify-between items-center bg-secondary text-secondary-content">
         <div className="w-[220px]">Felipe Chernicharo</div>
 
         <div>

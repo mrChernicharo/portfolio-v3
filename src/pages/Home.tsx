@@ -1,5 +1,6 @@
 import TypingAnimation from "../components/Home/TypingAnimation";
 import HomeHero from "../components/Home/HomeHero";
+import SomeProjects from "../components/Home/SomeProjects";
 
 interface IHomeProps {}
 
@@ -10,7 +11,8 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
       <TypingAnimation />
 
-      <div>Some Projects</div>
+      <SomeProjects />
+
       <hr />
       <div>Experience</div>
       <hr />
