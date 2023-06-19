@@ -111,7 +111,7 @@ for (let i = 0; i < codeLines.length; i++) {
 export default function TypingAnimation() {
   const [cursorIdx, setCursorIdx] = useState(0);
   const [cursorRow, setCursorRow] = useState(0);
-  const interval = useRef(0);
+  const interval = useRef<any>(null);
 
   useEffect(() => {
     interval.current = setInterval(() => {

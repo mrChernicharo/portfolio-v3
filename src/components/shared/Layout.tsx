@@ -12,9 +12,7 @@ function Layout(props: Props) {
     <div>
       <NavBar />
 
-      <div className="">
-        {children}
-      </div>
+      <div className="">{children}</div>
     </div>
   );
 }

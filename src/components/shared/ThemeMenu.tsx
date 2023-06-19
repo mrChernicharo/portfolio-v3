@@ -1,10 +1,9 @@
+import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
-import { Fragment, useEffect, useRef, useState } from "react";
-import { EllipsisHorizontalIcon, ChevronDownIcon } from "@heroicons/react/20/solid";
+import { EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
+import { APP_THEMES, AppTheme } from "../../themes";
+import { useThemeContext } from "../../context/ThemeContext";
 import AppSelect from "./AppSelect";
-import { defaultTheme } from "../helpers/theme.helpers";
-import { APP_THEMES, AppTheme } from "../themes";
-import { useThemeContext } from "../context/ThemeContext";
 
 export default function ThemeMenu() {
   const { theme, setTheme } = useThemeContext();

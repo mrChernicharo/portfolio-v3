@@ -1,5 +1,5 @@
-import TypingAnimation from "../components/TypingAnimation";
-import HomeHero from "../components/HomeHero";
+import TypingAnimation from "../components/Home/TypingAnimation";
+import HomeHero from "../components/Home/HomeHero";
 
 interface IHomeProps {}
 

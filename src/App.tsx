@@ -1,15 +1,10 @@
-import { useState } from "react";
-import { APP_THEMES } from "./themes";
-import { useFetch } from "./useFetch";
-import { NavBar } from "./components/NavBar";
 import { useThemeContext } from "./context/ThemeContext";
-import TypingAnimation from "./components/TypingAnimation";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
-import Layout from "./components/Layout";
+import Layout from "./components/shared/Layout";
 
 const router = createBrowserRouter([
   {

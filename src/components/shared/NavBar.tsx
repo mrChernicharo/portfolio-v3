@@ -1,8 +1,4 @@
-import { useThemeContext } from "../context/ThemeContext";
-import { defaultTheme } from "../helpers/theme.helpers";
-import { APP_THEMES, AppTheme } from "../themes";
 import ThemeMenu from "./ThemeMenu";
-import AppSelect from "./AppSelect";
 import { Link } from "react-router-dom";
 
 export function NavBar() {

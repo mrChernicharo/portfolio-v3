@@ -1,7 +1,7 @@
 import { Fragment, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
-import { capitalize } from "../helpers/shared.helpers";
+import { capitalize } from "../../helpers/shared.helpers";
 
 export default function AppSelect(props: {
   label: string;
@@ -14,7 +14,9 @@ export default function AppSelect(props: {
 
   return (
     <div className="relative min-w-[200px]">
-      <label className="absolute z-10 text-[10px] top-[5px] left-[12px] text-base-content opacity-80">{props.label}</label>
+      <label className="absolute z-10 text-[10px] top-[5px] left-[12px] text-base-content opacity-80">
+        {props.label}
+      </label>
       <Listbox
         value={value}
         onChange={(val) => {
@@ -49,13 +51,17 @@ export default function AppSelect(props: {
                 <Listbox.Option
                   key={personIdx}
                   className={({ active }) =>
-                    `relative cursor-default select-none py-2 ${active ? "bg-accent text-accent-content" : "bg-base-100 text-base-content"}`
+                    `relative cursor-default select-none py-2 ${
+                      active ? "bg-accent text-accent-content" : "bg-base-100 text-base-content"
+                    }`
                   }
                   value={item}
                 >
                   {({ selected }) => (
                     <>
-                      <span className={`block truncate text-left ml-10 ${selected ? "font-medium" : "font-normal"}`}>{capitalize(item)}</span>
+                      <span className={`block truncate text-left ml-10 ${selected ? "font-medium" : "font-normal"}`}>
+                        {capitalize(item)}
+                      </span>
                       {selected ? (
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-accent">
                           <CheckIcon className="h-5 w-5" aria-hidden="true" />
