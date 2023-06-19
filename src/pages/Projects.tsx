@@ -17,7 +17,7 @@ function Projects(props: Props) {
         {loading && <div>loading...</div>}
 
         {data?.projects.map((p) => (
-          <div key={Math.random()}>{JSON.stringify(p, null, 2)}</div>
+          <div key={p.id}>{JSON.stringify(p, null, 2)}</div>
         ))}
       </div>
     </div>
