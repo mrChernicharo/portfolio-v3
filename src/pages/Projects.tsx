@@ -1,14 +1,15 @@
 import { useEffect } from "react";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "../components/shared/NavBar";
 import { useFetch } from "../useFetch";
 import { Project } from "../helpers/types";
+import { useDataContext } from "../context/DataContext";
 
 interface Props {}
 
-
 function Projects(props: Props) {
   const {} = props;
-  const { data, loading, error } = useFetch<{ projects: Project[] }>("https://string7-data-api.onrender.com/projects");
+  const { projects } = useDataContext();
+  const { data, error, loading } = projects;
 
   return (
     <div>
@@ -25,6 +26,3 @@ function Projects(props: Props) {
 }
 
 export default Projects;
-
-
-

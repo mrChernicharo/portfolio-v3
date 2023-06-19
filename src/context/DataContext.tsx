@@ -3,15 +3,33 @@ import { Job, Skill, Project } from "../helpers/types";
 import { useFetch } from "../useFetch";
 
 interface DataContextValues {
-  jobs: Job[];
-  skills: Skill[];
-  projects: Project[];
+  jobs: {
+    data: {
+      jobs: Job[];
+    } | null;
+    error: null;
+    loading: boolean;
+  };
+  skills: {
+    data: {
+      skills: Skill[];
+    } | null;
+    error: null;
+    loading: boolean;
+  };
+  projects: {
+    data: {
+      projects: Project[];
+    } | null;
+    error: null;
+    loading: boolean;
+  };
 }
 
 const DataContext = createContext<DataContextValues>({
-  jobs: [],
-  skills: [],
-  projects: [],
+  jobs: { data: { jobs: [] }, error: null, loading: false },
+  skills: { data: { skills: [] }, error: null, loading: false },
+  projects: { data: { projects: [] }, error: null, loading: false },
 });
 
 const useDataContext = () => useContext(DataContext);
@@ -24,9 +42,9 @@ const DataContextProvider = (props: { children: ReactNode }) => {
   return (
     <DataContext.Provider
       value={{
-        jobs: jobsResponse.data?.jobs || [],
-        skills: skillsResponse.data?.skills || [],
-        projects: projectsResponse.data?.projects || [],
+        jobs: jobsResponse,
+        skills: skillsResponse,
+        projects: projectsResponse,
       }}
     >
       {props.children}

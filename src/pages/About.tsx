@@ -1,11 +1,13 @@
 import { useFetch } from "../useFetch";
 import { Job } from "../helpers/types";
+import { useDataContext } from "../context/DataContext";
 
 interface Props {}
 
 function About(props: Props) {
   const {} = props;
-  const { data, loading, error } = useFetch<{ jobs: Job[] }>("https://string7-data-api.onrender.com/jobs");
+  const { jobs } = useDataContext();
+  const { data, error, loading } = jobs;
 
   return (
     <div>
