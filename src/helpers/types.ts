@@ -1,3 +1,12 @@
+export enum SkillCategory {
+  Language = "language",
+  Framework = "framework",
+  Library = "library",
+  Platform = "platform",
+  Database = "database",
+  Tool = "tool",
+}
+
 export interface Job {
   id: string;
   title: string;
@@ -21,4 +30,13 @@ export interface Project {
   updated_at: string;
   description: string;
   language: string;
+}
+
+export interface Skill {
+  name: string;
+  category: SkillCategory;
+  first_used_at: string;
+  image_url: string;
+  description: string;
+  level: number;
 }
