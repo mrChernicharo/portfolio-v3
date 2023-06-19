@@ -1,29 +1,21 @@
 import { useDataContext } from "../../context/DataContext";
 import { Card } from "../shared/Card";
+import ProjectCard from "../shared/ProjectCard";
 
 export default function SomeProjects() {
   const { projects, skills } = useDataContext();
 
   return (
-    <div>
+    <div className="my-16">
       {projects.loading ? (
         <div>loading projects...</div>
       ) : (
-        <div className="grid">
-          {projects.data?.projects.slice(0, 20).map((proj, i) => (
-            <Card key={proj.id}>
-              <figure>
-                <img src={skills.data?.skills[i].image_url} alt="Shoes" />
-              </figure>
-              <div className="card-body">
-                <h2 className="card-title">{proj.name}</h2>
-                <p>{proj.description == "null" ? "" : proj.description}</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Buy Now</button>
-                </div>
-              </div>
-            </Card>
-          ))}
+        <div className="flex items-center justify-center">
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
+            {projects.data?.projects.slice(0, 16).map((proj, i) => (
+              <ProjectCard key={proj.id} project={proj} imageUrl={skills.data?.skills[i].image_url!} />
+            ))}
+          </div>
         </div>
       )}
     </div>
