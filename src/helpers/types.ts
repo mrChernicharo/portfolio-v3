@@ -30,6 +30,7 @@ export interface Project {
   updated_at: string;
   description: string;
   language: string;
+  video_url: string;
 }
 
 export interface Skill {

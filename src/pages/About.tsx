@@ -14,7 +14,12 @@ function About(props: Props) {
       <h1>Jobs</h1>
       <ul>
         {jobs.data?.jobs.map((job) => (
-          <li key={job.id}>{job.company}</li>
+          <li key={job.id}>
+            <div>
+              {job.title} at <strong>{job.company}</strong>
+            </div>
+            <img src={job.company_img_url} width={200} />
+          </li>
         ))}
       </ul>
       <h1>Skills</h1>

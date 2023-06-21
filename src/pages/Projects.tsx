@@ -3,6 +3,7 @@ import { NavBar } from "../components/shared/NavBar";
 import { useFetch } from "../useFetch";
 import { Project } from "../helpers/types";
 import { useDataContext } from "../context/DataContext";
+import SomeProjects from "../components/Home/SomeProjects";
 
 interface Props {}
 
@@ -14,13 +15,7 @@ function Projects(props: Props) {
   return (
     <div>
       Hello Projects!
-      <div>
-        {loading && <div>loading...</div>}
-
-        {data?.projects.map((p) => (
-          <div key={p.id}>{JSON.stringify(p, null, 2)}</div>
-        ))}
-      </div>
+      <div>{loading ? <div>loading...</div> : <SomeProjects count={100} />}</div>
     </div>
   );
 }

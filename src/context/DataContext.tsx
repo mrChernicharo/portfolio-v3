@@ -1,4 +1,4 @@
-import { useContext, createContext, ReactNode } from "react";
+import { useContext, createContext, ReactNode, useEffect } from "react";
 import { Job, Skill, Project } from "../helpers/types";
 import { useFetch } from "../useFetch";
 
@@ -38,6 +38,10 @@ const DataContextProvider = (props: { children: ReactNode }) => {
   const projectsResponse = useFetch<{ projects: Project[] }>("https://string7-data-api.onrender.com/projects");
   const skillsResponse = useFetch<{ skills: Skill[] }>("https://string7-data-api.onrender.com/skills");
   const jobsResponse = useFetch<{ jobs: Job[] }>("https://string7-data-api.onrender.com/jobs");
+
+  useEffect(() => {
+    console.log({ projectsResponse, skillsResponse, jobsResponse });
+  }, [projectsResponse, skillsResponse, jobsResponse]);
 
   return (
     <DataContext.Provider
