@@ -161,6 +161,7 @@ create table projects(
 
 
 insert into projects (name, site_url, github_url, created_at, updated_at, description, main_language) values 
+  ('enhanced-img', 'https://enhanced-8r8tjphza-mrchernicharo.vercel.app/', 'https://github.com/mrChernicharo/enhanced-img', '2023-06-08T20:10:14Z','2023-06-08T20:10:30Z', 'a tiny website where we handle images like a boss', 'Javascript'),
   ('image-processing',null,'https://github.com/mrChernicharo/image-processing','2023-06-08T20:10:14Z','2023-06-08T20:10:30Z','image-processing app built with nodeJS and ffmpeg','JavaScript'),
   ('image-resize',null,'https://github.com/mrChernicharo/image-resize','2023-06-07T23:46:47Z','2023-06-07T23:47:02Z','image-resize','JavaScript'),
   ('path-finder-app','https://bright-dodol-9bedc7.netlify.app/','https://github.com/mrChernicharo/path-finder-app','2023-05-26T20:20:46Z','2023-05-26T20:21:04Z','path-finder-app','TypeScript'),
@@ -368,7 +369,42 @@ select * from projects where length(description) > 0;
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>  PROJECT_IMAGES  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
+truncate project_images;
 
+create table project_images (
+  id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+  url varchar NOT NULL,
+  project_id uuid NOT NULL,
+  
+  constraint fk_project_images_project_id foreign key (project_id) references projects(id) ON delete cascade
+);
+
+insert into project_images (url, project_id) values 
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-01.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-02.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-03.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-04.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-05.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-06.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-07.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-08.png', (select id from projects where name = 'app-lacos')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-01.png', (select id from projects where name = 'ts-map')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-02.png', (select id from projects where name = 'ts-map')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-03.png', (select id from projects where name = 'ts-map')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-04.png', (select id from projects where name = 'ts-map')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-05.png', (select id from projects where name = 'ts-map')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-06.png', (select id from projects where name = 'ts-map')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-01.png', (select id from projects where name = 'd3-charts')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-02.png', (select id from projects where name = 'd3-charts')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/happy-plants-01.png', (select id from projects where name = 'happy-plants')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/mel-da-terra-verde-01.png', (select id from projects where name = 'app-mel-da-terra-verde')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-01.png', (select id from projects where name = 'next-portfolio')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-02.png', (select id from projects where name = 'next-portfolio')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-03.png', (select id from projects where name = 'next-portfolio')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-04.png', (select id from projects where name = 'next-portfolio')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-05.png', (select id from projects where name = 'next-portfolio'));
+
+select * from project_images;
 
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -385,7 +421,7 @@ create table project_videos (
   
   constraint fk_project_videos_project_id foreign key (project_id) references projects(id) ON delete cascade
 );
-
+ 
 
 insert into project_videos (url, project_id) values 
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/d3-charts.mp4', (select id from projects where name = 'd3-charts')),
@@ -395,6 +431,7 @@ insert into project_videos (url, project_id) values
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/happy-plants.mp4', (select id from projects where name = 'happy-plants')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/app-lacos.mp4', (select id from projects where name = 'app-lacos')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/old-portfolio.mp4', (select id from projects where name = 'next-portfolio')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/videos/enhanced-img.mp4', (select id from projects where name = 'enhanced-img')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/mel-portfolio.mp4', (select id from projects where name ='app-mel-da-terra-verde'));
 
 -- projects + video_url
