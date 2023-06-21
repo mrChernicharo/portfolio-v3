@@ -379,32 +379,110 @@ create table project_images (
   constraint fk_project_images_project_id foreign key (project_id) references projects(id) ON delete cascade
 );
 
-insert into project_images (url, project_id) values 
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-01.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-02.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-03.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-04.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-05.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-06.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-07.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-08.png', (select id from projects where name = 'app-lacos')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-01.png', (select id from projects where name = 'ts-map')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-02.png', (select id from projects where name = 'ts-map')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-03.png', (select id from projects where name = 'ts-map')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-04.png', (select id from projects where name = 'ts-map')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-05.png', (select id from projects where name = 'ts-map')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defence-06.png', (select id from projects where name = 'ts-map')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-01.png', (select id from projects where name = 'd3-charts')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-02.png', (select id from projects where name = 'd3-charts')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/happy-plants-01.png', (select id from projects where name = 'happy-plants')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/mel-da-terra-verde-01.png', (select id from projects where name = 'app-mel-da-terra-verde')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-01.png', (select id from projects where name = 'next-portfolio')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-02.png', (select id from projects where name = 'next-portfolio')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-03.png', (select id from projects where name = 'next-portfolio')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-04.png', (select id from projects where name = 'next-portfolio')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-05.png', (select id from projects where name = 'next-portfolio'));
-
 select * from project_images;
+select * from projects where name like '%coleta%';
+
+insert into project_images (url, project_id) values 
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-01.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-02.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-03.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-04.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-05.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-06.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-07.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/app-lacos-08.png', (select id from projects where name = 'app-lacos')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-01.png', (select id from projects where name = 'd3-charts')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-02.png', (select id from projects where name = 'd3-charts')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-03.png', (select id from projects where name = 'd3-charts')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-04.png', (select id from projects where name = 'd3-charts')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/d3-charts-05.png', (select id from projects where name = 'd3-charts')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-01.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-02.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-03.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-04.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-05.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-06.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-07.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-08.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-09.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/e-coleta-10.png', (select id from projects where name = 'unigranrio-coleta-e')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/electro-01.png', (select id from projects where name = 'd3-electrorating')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/electro-02.png', (select id from projects where name = 'd3-electrorating')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/electro-03.png', (select id from projects where name = 'd3-electrorating')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/electro-04.png', (select id from projects where name = 'd3-electrorating')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/electro-05.png', (select id from projects where name = 'd3-electrorating')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/enhanced-img-01.png', (select id from projects where name = 'enhanced-img')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/enhanced-img-02.png', (select id from projects where name = 'enhanced-img')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/enhanced-img-03.png', (select id from projects where name = 'enhanced-img')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/enhanced-img-04.png', (select id from projects where name = 'enhanced-img')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/enhanced-img-05.png', (select id from projects where name = 'enhanced-img')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/enhanced-img-06.png', (select id from projects where name = 'enhanced-img')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defense-01.png', (select id from projects where name = 'ts-map')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defense-02.png', (select id from projects where name = 'ts-map')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defense-03.png', (select id from projects where name = 'ts-map')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defense-04.png', (select id from projects where name = 'ts-map')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defense-05.png', (select id from projects where name = 'ts-map')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/gordinho-defense-06.png', (select id from projects where name = 'ts-map')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/happy-plants-01.png', (select id from projects where name = 'happy-plants')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/mel-da-terra-verde-01.png', (select id from projects where name = 'app-mel-da-terra-verde')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-01.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-02.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-03.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-04.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-05.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-06.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-07.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-08.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-09.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/melodev-10.png', (select id from projects where name = 'melo-dev-portfolio-v2')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/motors-01.png', (select id from projects where name = 'next-unigranrio-motors')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/motors-02.png', (select id from projects where name = 'next-unigranrio-motors')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/motors-03.png', (select id from projects where name = 'next-unigranrio-motors')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/motors-04.png', (select id from projects where name = 'next-unigranrio-motors')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/motors-05.png', (select id from projects where name = 'next-unigranrio-motors')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/motors-06.png', (select id from projects where name = 'next-unigranrio-motors')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-01.png', (select id from projects where name = 'next-portfolio')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-02.png', (select id from projects where name = 'next-portfolio')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-03.png', (select id from projects where name = 'next-portfolio')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-04.png', (select id from projects where name = 'next-portfolio')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/old-portfolio-05.png', (select id from projects where name = 'next-portfolio')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-01.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-02.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-03.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-04.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-05.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-06.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-07.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-08.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-09.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/path-finder-10.png', (select id from projects where name = 'path-finder-app')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/piano-01.png', (select id from projects where name = 'ts-piano')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/piano-02.png', (select id from projects where name = 'ts-piano')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/piano-03.png', (select id from projects where name = 'ts-piano')),
+('https://string7devfiles.s3.amazonaws.com/projects/images/piano-04.png', (select id from projects where name = 'ts-piano'));
+
+
+
+
+select proj.name, imgs.url as image_url 
+from project_images as imgs
+right join projects as proj
+on imgs.project_id = proj.id;
+
+
+select proj.name, imgs.url as image_url, videos.url as video_url 
+from project_images as imgs
+left join projects as proj
+on imgs.project_id = proj.id
+left join project_videos as videos
+on imgs.project_id = videos.project_id;
+
+select proj.name, proj.site_url, imgs.url as image_url, videos.url as video_url
+from projects as proj
+left join project_images as imgs
+on imgs.project_id = proj.id
+left join project_videos as videos
+on videos.project_id = proj.id;
 
 
 -- >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -424,6 +502,7 @@ create table project_videos (
  
 
 insert into project_videos (url, project_id) values 
+    ('https://string7devfiles.s3.amazonaws.com/projects/videos/enhanced-img.mp4', (select id from projects where name = 'enhanced-img')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/d3-charts.mp4', (select id from projects where name = 'd3-charts')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/path-finder.mp4', (select id from projects where name = 'path-finder-app')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/ts-map.mp4', (select id from projects where name = 'ts-map')),
@@ -431,8 +510,10 @@ insert into project_videos (url, project_id) values
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/happy-plants.mp4', (select id from projects where name = 'happy-plants')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/app-lacos.mp4', (select id from projects where name = 'app-lacos')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/old-portfolio.mp4', (select id from projects where name = 'next-portfolio')),
-    ('https://string7devfiles.s3.amazonaws.com/projects/videos/enhanced-img.mp4', (select id from projects where name = 'enhanced-img')),
+    ('https://string7devfiles.s3.amazonaws.com/projects/videos/e-coleta.mp4', (select id from projects where name ='unigranrio-coleta-e')),
     ('https://string7devfiles.s3.amazonaws.com/projects/videos/mel-portfolio.mp4', (select id from projects where name ='app-mel-da-terra-verde'));
+
+select * from project_videos;
 
 -- projects + video_url
 select proj.*, videos.url as video_url 
