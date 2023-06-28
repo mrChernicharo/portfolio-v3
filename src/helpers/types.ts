@@ -43,3 +43,10 @@ export interface Skill {
   description: string;
   level: number;
 }
+
+export interface AppImage {
+  url: string;
+  mini_url: string;
+  width?: number;
+  height?: number;
+}
