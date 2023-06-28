@@ -13,11 +13,7 @@ export default function SomeProjects(props: { count?: number }) {
         <div className="flex items-center justify-center">
           <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
             {projects.data?.projects.slice(0, props.count || 12).map((proj, i) => (
-              <ProjectCard
-                key={proj.id}
-                project={proj}
-                imageUrl={skills.data?.skills[i % skills.data?.skills.length].image_url!}
-              />
+              <ProjectCard key={proj.id} project={proj} imageUrl={proj?.image_urls?.[0] || ""} />
             ))}
           </div>
         </div>
