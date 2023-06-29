@@ -27,9 +27,10 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
   return (
     <div>
+      <HomeHero />
+      
       {imgList?.length ? <ImageGrid images={imgList?.slice(0, 7)} /> : null}
 
-      <HomeHero />
 
       <TypingAnimation />
 
