@@ -1,4 +1,5 @@
 import { useRef, useState } from "react";
+import "./enhanced-image.scss";
 
 interface EnhancedImageProps {
   url: string;
@@ -7,23 +8,20 @@ interface EnhancedImageProps {
   height?: number;
 }
 
-export function EnhancedImage({ url, miniUrl, width, height }: EnhancedImageProps) {
+export function EnhancedImage({ url, miniUrl, width = 300, height = 200 }: EnhancedImageProps) {
   const [loaded, setLoaded] = useState(false);
   const imgRef = useRef(null);
 
   return (
     <div
-      className={`ImgWrapper ${loaded ? "Loaded" : ""}`}
-      style={{
-        backgroundImage: `url(${miniUrl})`,
-        ...(width && {width}),
-        ...(height && {height}),
-      }}
+      className={`img-wrapper ${loaded ? "loaded" : ""}`}
+      style={{ width, height, backgroundImage: `url(${miniUrl})` }}
     >
       <img
         src={url}
         ref={imgRef}
-        className={`Img ${loaded ? "Loaded" : ""}`}
+        className={`image ${loaded ? "loaded" : ""}`}
+        style={{ width, height }}
         width={width}
         height={height}
         loading="lazy"
