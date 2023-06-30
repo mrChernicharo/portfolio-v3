@@ -28,9 +28,19 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
   return (
     <div>
       <HomeHero />
-      
-      {imgList?.length ? <ImageGrid images={imgList?.slice(0, 7)} /> : null}
 
+      {imgList?.length ? (
+        <>
+          <ImageGrid images={imgList?.slice(27, 31)} gridTemplateAreas={`"A B C" "D B E" "F F E"`} />
+          <ImageGrid images={imgList?.slice(12, 15)} gridTemplateAreas={`"A B B" "C C D" "E F D"`} />
+          <ImageGrid images={imgList?.slice(21, 30)} gridTemplateAreas={`"A A B" "A A B" "C C B" "C C D"`} />
+          <ImageGrid images={imgList?.slice(21, 30)} gridTemplateAreas={`"A B" "A C" "D C" "D E"`} />
+          <ImageGrid
+            images={imgList?.slice(21, 30)}
+            gridTemplateAreas={`"A A A B" "A A A C" "A A A D" "E F F F" "G F F F"`}
+          />
+        </>
+      ) : null}
 
       <TypingAnimation />
 

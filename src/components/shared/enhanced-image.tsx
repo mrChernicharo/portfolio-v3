@@ -14,7 +14,7 @@ export function EnhancedImage({ url, miniUrl, width = 300, height = 200 }: Enhan
 
   return (
     <div
-      className={`img-wrapper ${loaded ? "loaded" : ""}`}
+      className={`img-wrapper ${loaded ? "loaded" : ""} z-[1]`}
       style={{ width, height, backgroundImage: `url(${miniUrl})` }}
     >
       <img
