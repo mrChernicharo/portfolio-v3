@@ -1,4 +1,4 @@
-import { AppImage } from "./types";
+import { AppImage, GridArea } from "./types";
 
 export const capitalize = (str: string) => `${str[0].toUpperCase()}${str.slice(1)}`;
 
@@ -33,5 +33,26 @@ export function getGridSchema(images: AppImage[], grid: string[][]) {
       }
     }
   }
+  return Object.values(areas);
+}
+
+export function parseGridAreas(gridTemplate: string[]) {
+  const areas: Record<string, GridArea> = {};
+
+  for (const [y, row] of gridTemplate.entries()) {
+    for (const [x, area] of row.split(" ").entries()) {
+      if (!(area in areas)) {
+        areas[area] = { name: area, w: 1, h: 1, x, y: Number(y) };
+      } else {
+        if (areas[area].x === x) {
+          areas[area].h++;
+        } else if (areas[area].y === Number(y)) {
+          areas[area].w++;
+        }
+      }
+    }
+  }
+
+  console.log({ areas });
   return Object.values(areas);
 }

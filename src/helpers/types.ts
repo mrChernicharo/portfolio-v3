@@ -50,3 +50,13 @@ export interface AppImage {
   width?: number;
   height?: number;
 }
+
+export type GridArea = {
+  name: string;
+  w: number;
+  h: number;
+  x: number;
+  y: number;
+};
+
+export type GridImageArea = GridArea & { url: string; mini_url: string; width: number; height: number };
