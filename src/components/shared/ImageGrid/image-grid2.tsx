@@ -13,6 +13,7 @@ interface Props {
 
 export default function ImageGrid({ images, gridTemplatesObj, imgHeight = 200, imgWidth = 300, gap = 20 }: Props) {
   const gridTemplates: Record<string, GridImageArea[]> = {};
+  const screenSize = "lg";
 
   for (const [k, gridTemplate] of Object.entries(gridTemplatesObj)) {
     gridTemplates[k] = parseGridAreas(gridTemplate).map((gridArea, i) => ({
@@ -24,7 +25,7 @@ export default function ImageGrid({ images, gridTemplatesObj, imgHeight = 200, i
     }));
   }
 
-  const grid = gridTemplates["lg"];
+  const grid = gridTemplates[screenSize];
 
   console.log({ gridTemplates, gridTemplatesObj, grid });
 
@@ -32,12 +33,12 @@ export default function ImageGrid({ images, gridTemplatesObj, imgHeight = 200, i
     <div
       className="image-grid"
       style={{
-        width: gridTemplatesObj["lg"].length * imgWidth + (gridTemplatesObj["lg"].length - 1) * gap,
-        height: grid.length * imgHeight + (grid.length - 1) * gap,
+        // width: gridTemplatesObj[screenSize].length * imgWidth + (gridTemplatesObj[screenSize].length - 1) * gap,
+        height: gridTemplatesObj[screenSize].length * imgHeight + (gridTemplatesObj[screenSize].length - 1) * gap,
         display: "grid",
-        gridTemplateColumns: `repeat(${gridTemplatesObj["lg"].length}, ${imgWidth}px)`,
-        gridTemplateRows: `repeat(${grid.length}, ${imgHeight}px)`,
-        gridTemplateAreas: `"` + gridTemplatesObj["lg"].join(`" "`) + `"`,
+        gridTemplateColumns: `repeat(${gridTemplatesObj[screenSize].length}, ${imgWidth}px)`,
+        gridTemplateRows: `repeat(${gridTemplatesObj[screenSize].length}, ${imgHeight}px)`,
+        gridTemplateAreas: `"` + gridTemplatesObj[screenSize].join(`" "`) + `"`,
         gap,
       }}
     >

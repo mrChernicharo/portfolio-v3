@@ -53,6 +53,5 @@ export function parseGridAreas(gridTemplate: string[]) {
     }
   }
 
-  console.log({ areas });
   return Object.values(areas);
 }

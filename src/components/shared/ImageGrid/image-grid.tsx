@@ -30,8 +30,6 @@ export default function ImageGrid(props: Props) {
     height: cell.h * imgH + (cell.h - 1) * gap,
   }));
 
-  console.log({ images, areasMatrix, gridAreas });
-
   return (
     <div
       className="image-grid"

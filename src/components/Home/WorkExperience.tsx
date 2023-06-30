@@ -4,8 +4,6 @@ import { useDataContext } from "../../context/DataContext";
 const WorkExperience = () => {
   const { jobs } = useDataContext();
 
-  console.log({ jobs });
-
   return (
     <div>
       <h1>Work Experience</h1>

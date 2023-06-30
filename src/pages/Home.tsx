@@ -76,6 +76,53 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
               ],
             }}
           />
+
+          <ImageGrid2
+            images={imgList?.slice(36, 38)}
+            gridTemplatesObj={{
+              // prettier-ignore
+              lg: [
+                "A A B B", 
+                "A A C C", 
+                "D D D E",
+                "D D D F",
+                "G H H I",
+                "J J K K"
+              ],
+              // prettier-ignore
+              md: [
+                "A A B", 
+                "D C C", 
+                "E F G",
+                "H I I",
+                "J K K",
+              ],
+              // prettier-ignore
+              sm: [
+                "A A", 
+                "B B", 
+                "C C", 
+                "D E", 
+                "F G",
+                "H I",
+                "J K"
+              ],
+              // prettier-ignore
+              xs: [
+                "A", 
+                "B", 
+                "C", 
+                "D", 
+                "E", 
+                "F", 
+                "G",
+                "H",
+                "I",
+                "J",
+                "K"
+              ],
+            }}
+          />
         </>
       ) : null}
 
