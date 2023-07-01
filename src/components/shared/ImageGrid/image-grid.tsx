@@ -1,51 +1,52 @@
-import { getGridSchema } from "../../../helpers/shared.helpers";
-import { AppImage } from "../../../helpers/types";
+import { parseGridAreas } from "../../../helpers/shared.helpers";
+import { AppImage, GridImageArea } from "../../../helpers/types";
+import { useScreenWidth } from "../../../hooks/useScreenWidth";
 import { EnhancedImage } from "../enhanced-image";
-import "./image-grid.scss";
 
 interface Props {
   images: AppImage[];
-  gridTemplateAreas: string;
+  gridTemplatesObj: { [screen: string]: string[] };
+  imgHeight?: number;
+  imgWidth?: number;
+  gap?: number;
 }
 
-const parseTemplateAreasStr = (templateStr: string) => {
-  return templateStr
-    .replaceAll(/" "/g, `,`)
-    .replaceAll(/"/g, "")
-    .split(",")
-    .map((row) => row.split(" "));
-};
+export default function ImageGrid({ images, gridTemplatesObj, imgHeight = 200, imgWidth = 300, gap = 20 }: Props) {
+  const { breakpoint } = useScreenWidth();
+  const gridTemplate = gridTemplatesObj[breakpoint];
+  const gridAreas: Record<string, GridImageArea[]> = {};
 
-const imgH = 200;
-const imgW = 300;
-const gap = 20;
-export default function ImageGrid(props: Props) {
-  const { images, gridTemplateAreas } = props;
-  const areasMatrix = parseTemplateAreasStr(gridTemplateAreas);
-  const gridAreas = getGridSchema(images, areasMatrix);
+  for (const [k, gridTemplate] of Object.entries(gridTemplatesObj)) {
+    gridAreas[k] = parseGridAreas(gridTemplate).map((gridArea, i) => ({
+      ...gridArea,
+      url: images[i % images.length].url,
+      mini_url: images[i % images.length].mini_url,
+      width: gridArea.w * imgWidth + (gridArea.w - 1) * gap,
+      height: gridArea.h * imgHeight + (gridArea.h - 1) * gap,
+    }));
+  }
 
-  const grid = gridAreas.map((cell, i) => ({
-    ...cell,
-    width: cell.w * imgW + (cell.w - 1) * gap,
-    height: cell.h * imgH + (cell.h - 1) * gap,
-  }));
+  const grid = gridAreas[breakpoint];
+
+  // console.log({ gridAreas, gridTemplatesObj, gridTemplate, grid });
 
   return (
     <div
-      className="image-grid"
+      className="image-grid bg-base-200 mx-auto my-12 rounded-lg"
       style={{
-        width: areasMatrix[0].length * imgW + (areasMatrix[0].length - 1) * gap,
-        height: areasMatrix.length * imgH + (areasMatrix.length - 1) * gap,
+        width: gridTemplate[0].split(" ").length * imgWidth + (gridTemplate[0].split(" ").length - 1) * gap + gap * 2,
+        height: gridTemplate.length * imgHeight + (gridTemplate.length - 1) * gap + gap * 2,
         display: "grid",
-        gridTemplateColumns: `repeat(${areasMatrix[0].length}, ${imgW}px)`,
-        gridTemplateRows: `repeat(${areasMatrix.length}, ${imgH}px)`,
-        gridTemplateAreas,
+        gridTemplateColumns: `repeat(${gridTemplate[0].split(" ").length}, ${imgWidth}px)`,
+        gridTemplateRows: `repeat(${gridTemplate.length}, ${imgHeight}px)`,
+        gridTemplateAreas: `"` + gridTemplate.join(`" "`) + `"`,
         gap,
+        padding: gap + "px",
       }}
     >
       {grid.map((cell, i) => {
         return (
-          <div key={cell.area} style={{ gridArea: cell.area }} className="grid-item">
+          <div key={cell.name} style={{ gridArea: cell.name }} className="grid-item">
             <EnhancedImage url={cell.url} miniUrl={cell.mini_url} width={cell.width} height={cell.height} />
           </div>
         );
