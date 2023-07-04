@@ -32,14 +32,6 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
       <TypingAnimation />
 
       <DiagonalBox className="text-base-content bg-gradient-to-bl from-info-content to-info">
-        {/* <ImageGrid
-            images={imgs?.slice(36, 38)}
-            gridTemplatesObj={template03}
-            imgHeight={100}
-            imgWidth={200}
-            gap={10}
-          /> */}
-
         <h1 className="font-bold text-[96px]">Abrakadabra</h1>
         <div>
           <h2 className="text-[36px]">some h2 text</h2>
@@ -66,8 +58,13 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
           <h1 className="font-bold text-[96px]">Abrakadabra</h1>
 
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
+          <ImageGrid
+            images={imgs?.slice(36, 38)}
+            gridTemplatesObj={template03}
+            imgHeight={100}
+            imgWidth={200}
+            gap={10}
+          />
         </div>
       </DiagonalBox>
 
@@ -86,7 +83,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
       )}
 
       <hr />
-      {/* <WorkExperience /> */}
+      <WorkExperience />
       <hr />
       <div>Why me?</div>
       <hr />
