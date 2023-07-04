@@ -8,7 +8,6 @@ import { AppImage } from "../helpers/types";
 import { getMiniUrl } from "../helpers/shared.helpers";
 import { template01, template02, template03 } from "../helpers/img-grid-templates";
 import DiagonalBox from "../components/shared/DiagonalBox/diagonal-box";
-import Footer from "../components/shared/Footer/footer";
 
 interface IHomeProps {}
 
@@ -25,26 +24,64 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
   return (
     <div>
-      <DiagonalBox ascending={false} className="text-base-content bg-gradient-to-bl from-info-content to-info">
-        <HomeHero />
-      </DiagonalBox>
+      <h1 className="text-[4rem] font-bold -my-2 text-center">Welcome!</h1>
+
+      {/* {imgs?.[0]?.url && <PhoneFrame screenshot={imgs[0].url} />} */}
 
       <TypingAnimation />
 
-      <DiagonalBox className="text-base-content bg-gradient-to-bl from-info-content to-info">
-        <h1 className="font-bold text-[96px]">Abrakadabra</h1>
-        <div>
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
-        </div>
+      <DiagonalBox className="text-base-content bg-gradient-to-bl from-primary to-secondary">
+        <HomeHero />
       </DiagonalBox>
-
-      <HomeHero />
 
       <SomeProjects />
 
-      <DiagonalBox className="overflow-hidden text-base-content bg-gradient-to-bl from-success to-success-content">
+      {imgs?.length > 50 && (
+        <>
+          <ImageGrid
+            className="bg-base-300"
+            images={imgs?.slice(36, 38)}
+            gridTemplatesObj={template01}
+            imgHeight={50}
+            imgWidth={140}
+            gap={10}
+          />
+          <ImageGrid className="bg-base-300" images={imgs?.slice(43, 50)} gridTemplatesObj={template02} />
+        </>
+      )}
+
+      <hr />
+      <WorkExperience />
+      <hr />
+      <div>Why me?</div>
+      <hr />
+      <div>
+        <h1 className="text-[4rem] font-bold mt-2">Achievements</h1>
+
+        <ul>
+          <li>
+            stackoverflow reputation
+            <a href="https://stackoverflow.com/users/13111779/felipe-chernicharo" rel="nofollow">
+              <img
+                src="https://camo.githubusercontent.com/c16a9efb8598526df6dc23ea5df3787e0ee4d67d1d77aa416447e7f9b23bc9ef/68747470733a2f2f737461636b6f766572666c6f772e636f6d2f75736572732f666c6169722f31333131313737392e706e673f7468656d653d6461726b"
+                width="240"
+                alt="profile for Felipe Chernicharo at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+                title="profile for Felipe Chernicharo at Stack Overflow, Q&amp;A for professional and enthusiast programmers"
+                data-canonical-src="https://stackoverflow.com/users/flair/13111779.png?theme=dark"
+              />
+            </a>
+          </li>
+          <li>github repos</li>
+          <li>course certificates</li>
+          <li>spoken languages</li>
+        </ul>
+      </div>
+      <hr />
+
+      {/* <DiagonalBox ascending={false} className="text-base-content bg-gradient-to-bl from-info-content to-info">
+      </DiagonalBox> */}
+
+      {/* <DiagonalBox className="overflow-hidden text-base-content bg-gradient-to-bl from-success to-success-content">
         <div className="grid">
           <h1 className="font-bold text-[96px]">Abrakadabra</h1>
 
@@ -66,29 +103,16 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
             gap={10}
           />
         </div>
-      </DiagonalBox>
+      </DiagonalBox> */}
 
-      {imgs?.length > 50 && (
-        <>
-          <ImageGrid
-            className="bg-base-300"
-            images={imgs?.slice(36, 38)}
-            gridTemplatesObj={template01}
-            imgHeight={50}
-            imgWidth={140}
-            gap={10}
-          />
-          <ImageGrid className="bg-base-300" images={imgs?.slice(43, 50)} gridTemplatesObj={template02} />
-        </>
-      )}
-
-      <hr />
-      <WorkExperience />
-      <hr />
-      <div>Why me?</div>
-      <hr />
-      <div>Achievements</div>
-      <hr />
+      {/* <DiagonalBox className="text-base-content bg-gradient-to-bl from-primary to-secondary">
+        <h1 className="font-bold text-[96px]">Abrakadabra</h1>
+        <div>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+        </div>
+      </DiagonalBox> */}
     </div>
   );
 };

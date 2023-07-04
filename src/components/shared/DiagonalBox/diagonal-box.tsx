@@ -9,7 +9,7 @@ interface Props {
   slope?: number;
 }
 
-function DiagonalBox({ children, className = "", ascending = true, slope = 11 }: Props) {
+function DiagonalBox({ children, className = "", ascending = true, slope = 8 }: Props) {
   return (
     <div
       className={classNames("diagonal-box max-w-screen", className)}

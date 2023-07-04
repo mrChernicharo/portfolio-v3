@@ -12,24 +12,29 @@ const WorkExperience = () => {
     <div>
       <h1>Work Experience</h1>
 
-      {jobList.map((job, i) => (
-        <DiagonalBox
-          slope={6}
-          ascending={i % 2 === 0}
-          className={`p-8 mb-16 ${i % 2 === 0 ? "bg-secondary" : "bg-primary"}`}
-        >
-          <div key={job.id} className={`flex flex-col ${i % 2 === 0 ? "items-end " : "items-start"}`}>
-            <div className="w-full flex items-center justify-between">
-              <h1 className="text-[4rem] font-bold">{job.company}</h1>
-              <img className="h-[60px]" src={job.company_img_url} />
-            </div>
-            <h4 className="text-gray-400 pt-4 pb-8">{job.company_address}</h4>
-            <div>{job.description}</div>
+      {jobList.map((job, i) => {
+        const isEven = i % 2 === 0;
 
-            <div></div>
-          </div>
-        </DiagonalBox>
-      ))}
+        return (
+          <DiagonalBox slope={6} ascending={isEven} className={`p-8 mb-16 ${isEven ? "bg-secondary" : "bg-primary"}`}>
+            <div key={job.id} className={`flex flex-col ${isEven ? "items-end" : "items-start"}`}>
+              <div className="w-full flex items-center justify-between">
+                <h1 className="text-[4rem] font-bold mt-2">{job.company}</h1>
+                <img className="h-[60px] rounded-lg" src={job.company_img_url} />
+              </div>
+              <h4 className="text-gray-400 pt-4 pb-8">{job.company_address}</h4>
+
+              <div>Started {new Date(job.started_at).toLocaleDateString("en", { month: "long", year: "numeric" })}</div>
+              <div>
+                {job.ended_at
+                  ? "Ended " + new Date(job.ended_at).toLocaleDateString("en", { month: "long", year: "numeric" })
+                  : "Current job"}
+              </div>
+              <div className="mb-8">{job.description}</div>
+            </div>
+          </DiagonalBox>
+        );
+      })}
     </div>
   );
 };

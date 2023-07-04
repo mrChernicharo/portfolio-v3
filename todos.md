@@ -9,4 +9,4 @@
   - img text combo
   - image grid ✅
   - skew display ✅
-  - footer
+  - footer ✅
