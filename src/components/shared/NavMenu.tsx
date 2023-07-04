@@ -6,15 +6,9 @@ import { useThemeContext } from "../../context/ThemeContext";
 import AppSelect from "./AppSelect";
 import { useScreenWidth } from "../../hooks/useScreenWidth";
 import { Link } from "react-router-dom";
+import { APP_LINKS } from "../../helpers/constants";
 
-const links = [
-  { label: "Home", to: "/" },
-  { label: "Projects", to: "/projects" },
-  { label: "About", to: "/about" },
-  { label: "Contact", to: "/contact" },
-];
-
-export default function ThemeMenu() {
+export default function NavMenu() {
   const { theme, setTheme } = useThemeContext();
   const { width: screenWidth } = useScreenWidth();
 
@@ -45,7 +39,27 @@ export default function ThemeMenu() {
                   divide-y divide-gray-100 shadow-lg ring-opacity-5 focus:outline-none"
             >
               <div className="px-1 py-1">
+                {/* links */}
+                {screenWidth <= 600 && null}
+
+                {APP_LINKS.map(({ label, to }) => (
+                  <Menu.Item key={label}>
+                    {({ active }) => (
+                      <Link to={to}>
+                        <div
+                          className={`group flex w-full items-center rounded-md px-2 py-2 text-sm text-base-content ${
+                            active ? "bg-secondary text-secondary-content" : ""
+                          }`}
+                        >
+                          <span className="mx-2">{label}</span>
+                        </div>
+                      </Link>
+                    )}
+                  </Menu.Item>
+                ))}
+
                 <Menu.Item>
+                  {/* theme select */}
                   {({ active }) => (
                     <div
                       className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
@@ -61,23 +75,6 @@ export default function ThemeMenu() {
                     </div>
                   )}
                 </Menu.Item>
-
-                {screenWidth <= 600 &&
-                  links.map(({ label, to }) => (
-                    <Menu.Item key={label}>
-                      {({ active }) => (
-                        <Link to={to}>
-                          <div
-                            className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
-                              active ? "bg-secondary" : ""
-                            }`}
-                          >
-                            <span className="mx-2">{label}</span>
-                          </div>
-                        </Link>
-                      )}
-                    </Menu.Item>
-                  ))}
               </div>
             </Menu.Items>
           </Transition>

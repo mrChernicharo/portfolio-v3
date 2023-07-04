@@ -34,6 +34,10 @@ export interface Project {
   video_url?: string;
 }
 
+export interface MainProject extends Project {
+  skills: Skill[];
+}
+
 export interface Skill {
   id: string;
   name: string;

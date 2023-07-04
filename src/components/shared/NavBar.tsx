@@ -1,6 +1,7 @@
+import { APP_LINKS } from "../../helpers/constants";
 import { useScreenWidth } from "../../hooks/useScreenWidth";
-import ThemeMenu from "./ThemeMenu";
 import { Link } from "react-router-dom";
+import NavMenu from "./NavMenu";
 
 export function NavBar() {
   const { width: screenWidth } = useScreenWidth();
@@ -11,22 +12,15 @@ export function NavBar() {
         <div className="w-[220px]">Felipe Chernicharo</div>
         {screenWidth > 600 ? (
           <div>
-            <Link to="/">
-              <span className="mx-2">Home</span>
-            </Link>
-            <Link to="/projects">
-              <span className="mx-2">Projects</span>
-            </Link>
-            <Link to="/about">
-              <span className="mx-2">About</span>
-            </Link>
-            <Link to="/contact">
-              <span className="mx-2">Contact</span>
-            </Link>
+            {APP_LINKS.map(({ label, to }) => (
+              <Link to={to}>
+                <span className="mx-2">{label}</span>
+              </Link>
+            ))}
           </div>
         ) : null}
 
-        <ThemeMenu />
+        <NavMenu />
       </div>
       {/* filler */}
       <div className="bg-base-100 h-16"></div>
