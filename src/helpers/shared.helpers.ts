@@ -6,6 +6,10 @@ export const parseGithubUrl = (url: string) => url.replace("https://api.github.c
 
 export const getMiniUrl = (url: string) => url.replace("images", "thumbs");
 
+export function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
 // https://api.github.com/repos/mrChernicharo/module-federation-with-vite
 
 // const grid = [

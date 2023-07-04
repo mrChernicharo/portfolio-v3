@@ -31,3 +31,19 @@ export const template02 = {
   sm: schema02.sm,
   xs: schema02.sm,
 };
+
+const skewDisplaySchema = {
+  lg: ["A A B", "A A C"],
+  md: ["A A", "B C"],
+  sm: ["A", "B", "C"],
+};
+
+export const template03 = {
+  "3xl": skewDisplaySchema.lg,
+  "2xl": skewDisplaySchema.lg,
+  xl: skewDisplaySchema.md,
+  lg: skewDisplaySchema.md,
+  md: skewDisplaySchema.sm,
+  sm: skewDisplaySchema.sm,
+  xs: skewDisplaySchema.sm,
+};

@@ -14,13 +14,13 @@ export function EnhancedImage({ url, miniUrl, width = 300, height = 200 }: Enhan
 
   return (
     <div
-      className={`img-wrapper ${loaded ? "loaded" : ""} z-[1]`}
+      className={`img-wrapper ${loaded ? "loaded" : ""} z-[1] rounded-lg`}
       style={{ width, height, backgroundImage: `url(${miniUrl})` }}
     >
       <img
         src={url}
         ref={imgRef}
-        className={`image ${loaded ? "loaded" : ""}`}
+        className={`image rounded-lg ${loaded ? "loaded" : ""}`}
         style={{ width, height }}
         width={width}
         height={height}
