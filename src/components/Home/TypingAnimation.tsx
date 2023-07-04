@@ -137,8 +137,8 @@ export default function TypingAnimation() {
 
   return (
     <div className="mockup-window bg-primary max-w-[900px] mx-auto">
-      <div className="bg-base-300">
-        <div className="font-mono text-lg h-[450px] w-[900px] flex flex-col justify-center pl-20">
+      <div className="bg-base-300 p-6">
+        <div className="font-mono text-lg flex flex-col justify-center">
           {codeTable.map((line, i) => (
             <div className={`py-2 animate-pulse`} key={i}>
               {line.map((char, j) => {

@@ -40,7 +40,7 @@ export default function ImageGrid({
 
   return (
     <div
-      className={classNames(`image-grid mx-auto my-12 rounded-lg`, className)}
+      className={classNames(`image-grid mx-auto rounded-lg`, className)}
       style={{
         width: gridTemplate[0].split(" ").length * imgWidth + (gridTemplate[0].split(" ").length - 1) * gap + gap * 2,
         height: gridTemplate.length * imgHeight + (gridTemplate.length - 1) * gap + gap * 2,

@@ -8,29 +8,27 @@ import { AppImage } from "../helpers/types";
 import { getMiniUrl } from "../helpers/shared.helpers";
 import { template01, template02, template03 } from "../helpers/img-grid-templates";
 import DiagonalBox from "../components/shared/DiagonalBox/diagonal-box";
+import SomeDevices from "../components/Home/SomeDevices";
+import LottieHero from "../components/Home/LottieHero";
 
-interface IHomeProps {}
-
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+const Home: React.FunctionComponent = () => {
   const { projects } = useDataContext();
 
-  const imgs = projects.data?.projects
-    ? (projects.data?.projects
-        .filter((p) => !!p.image_urls)
-        .map((p) => p.image_urls)
-        .flat()
-        .map((img) => ({ url: img ?? "", mini_url: getMiniUrl(img ?? ""), width: 300, height: 200 })) as AppImage[])
-    : [];
+  const imgs = projects
+    .filter((p) => !!p.image_urls)
+    .map((p) => p.image_urls)
+    .flat()
+    .map((img) => ({ url: img ?? "", mini_url: getMiniUrl(img ?? ""), width: 300, height: 200 })) as AppImage[];
 
   return (
     <div>
-      <h1 className="text-[4rem] font-bold -my-2 text-center">Welcome!</h1>
-
-      {/* {imgs?.[0]?.url && <PhoneFrame screenshot={imgs[0].url} />} */}
+      <LottieHero />
 
       <TypingAnimation />
 
-      <DiagonalBox className="text-base-content bg-gradient-to-bl from-primary to-secondary">
+      {/* <SomeDevices /> */}
+
+      <DiagonalBox className="text-primary-content bg-gradient-to-bl from-primary to-secondary">
         <HomeHero />
       </DiagonalBox>
 
@@ -39,7 +37,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
       {imgs?.length > 50 && (
         <>
           <ImageGrid
-            className="bg-base-300"
+            className="bg-base-300 my-12"
             images={imgs?.slice(36, 38)}
             gridTemplatesObj={template01}
             imgHeight={50}

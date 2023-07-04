@@ -1,4 +1,3 @@
-import React from "react";
 import { parseGithubUrl } from "../../helpers/shared.helpers";
 import { Project } from "../../helpers/types";
 import { Card } from "./Card";

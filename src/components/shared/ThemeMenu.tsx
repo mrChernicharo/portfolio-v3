@@ -4,9 +4,19 @@ import { EllipsisHorizontalIcon } from "@heroicons/react/20/solid";
 import { APP_THEMES, AppTheme } from "../../themes";
 import { useThemeContext } from "../../context/ThemeContext";
 import AppSelect from "./AppSelect";
+import { useScreenWidth } from "../../hooks/useScreenWidth";
+import { Link } from "react-router-dom";
+
+const links = [
+  { label: "Home", to: "/" },
+  { label: "Projects", to: "/projects" },
+  { label: "About", to: "/about" },
+  { label: "Contact", to: "/contact" },
+];
 
 export default function ThemeMenu() {
   const { theme, setTheme } = useThemeContext();
+  const { width: screenWidth } = useScreenWidth();
 
   return (
     <div className="w-56 text-right">
@@ -51,28 +61,23 @@ export default function ThemeMenu() {
                     </div>
                   )}
                 </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <div
-                      className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
-                        active ? "bg-secondary" : ""
-                      }`}
-                    >
-                      <span className="text-base-content">Some option</span>
-                    </div>
-                  )}
-                </Menu.Item>
-                <Menu.Item>
-                  {({ active }) => (
-                    <div
-                      className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
-                        active ? "bg-secondary" : ""
-                      }`}
-                    >
-                      <span className="text-base-content">Some other option</span>
-                    </div>
-                  )}
-                </Menu.Item>
+
+                {screenWidth <= 600 &&
+                  links.map(({ label, to }) => (
+                    <Menu.Item key={label}>
+                      {({ active }) => (
+                        <Link to={to}>
+                          <div
+                            className={`group flex w-full items-center rounded-md px-2 py-2 text-sm ${
+                              active ? "bg-secondary" : ""
+                            }`}
+                          >
+                            <span className="mx-2">{label}</span>
+                          </div>
+                        </Link>
+                      )}
+                    </Menu.Item>
+                  ))}
               </div>
             </Menu.Items>
           </Transition>

@@ -10,7 +10,7 @@ function Layout(props: Props) {
   const { children } = props;
 
   return (
-    <div>
+    <div className="max-w-screen">
       <NavBar />
 
       <div className="">{children}</div>
