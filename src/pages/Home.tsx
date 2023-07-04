@@ -8,6 +8,7 @@ import { AppImage } from "../helpers/types";
 import { getMiniUrl } from "../helpers/shared.helpers";
 import { template01, template02, template03 } from "../helpers/img-grid-templates";
 import DiagonalBox from "../components/shared/DiagonalBox/diagonal-box";
+import Footer from "../components/shared/Footer/footer";
 
 interface IHomeProps {}
 
@@ -24,16 +25,27 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
   return (
     <div>
+      <DiagonalBox ascending={false} className="text-base-content bg-gradient-to-bl from-info-content to-info">
+        <HomeHero />
+      </DiagonalBox>
+
       <TypingAnimation />
 
       <DiagonalBox className="text-base-content bg-gradient-to-bl from-info-content to-info">
+        {/* <ImageGrid
+            images={imgs?.slice(36, 38)}
+            gridTemplatesObj={template03}
+            imgHeight={100}
+            imgWidth={200}
+            gap={10}
+          /> */}
+
         <h1 className="font-bold text-[96px]">Abrakadabra</h1>
-
-        <ImageGrid images={imgs?.slice(36, 38)} gridTemplatesObj={template03} imgHeight={200} imgWidth={300} gap={10} />
-
-        <h2 className="text-[36px]">some h2 text</h2>
-        <h2 className="text-[36px]">some h2 text</h2>
-        <h2 className="text-[36px]">some h2 text</h2>
+        <div>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+        </div>
       </DiagonalBox>
 
       <HomeHero />
@@ -41,20 +53,22 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
       <SomeProjects />
 
       <DiagonalBox className="overflow-hidden text-base-content bg-gradient-to-bl from-success to-success-content">
-        <h1 className="font-bold text-[96px]">Abrakadabra</h1>
+        <div className="grid">
+          <h1 className="font-bold text-[96px]">Abrakadabra</h1>
 
-        <h2 className="text-[36px]">some h2 text</h2>
-        <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
 
-        <h1 className="font-bold text-[96px]">Abrakadabra</h1>
+          <h1 className="font-bold text-[96px]">Abrakadabra</h1>
 
-        <h2 className="text-[36px]">some h2 text</h2>
-        <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
 
-        <h1 className="font-bold text-[96px]">Abrakadabra</h1>
+          <h1 className="font-bold text-[96px]">Abrakadabra</h1>
 
-        <h2 className="text-[36px]">some h2 text</h2>
-        <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+          <h2 className="text-[36px]">some h2 text</h2>
+        </div>
       </DiagonalBox>
 
       {imgs?.length > 50 && (
@@ -72,7 +86,7 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
       )}
 
       <hr />
-      <WorkExperience />
+      {/* <WorkExperience /> */}
       <hr />
       <div>Why me?</div>
       <hr />

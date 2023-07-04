@@ -8,5 +8,5 @@
   - glassmorph card
   - img text combo
   - image grid ✅
-  - skew display
+  - skew display ✅
   - footer

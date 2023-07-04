@@ -35,6 +35,7 @@ export const template02 = {
 const skewDisplaySchema = {
   lg: ["A A B", "A A C"],
   md: ["A A", "B C"],
+  // sm: ["A A B", "A A C"],
   sm: ["A", "B", "C"],
 };
 

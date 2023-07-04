@@ -26,7 +26,7 @@ export function NavBar() {
         <ThemeMenu />
       </div>
       {/* filler */}
-      <div className="bg-green-600 h-16"></div>
+      <div className="bg-base-100 h-16"></div>
     </>
   );
 }
