@@ -13,7 +13,8 @@ interface Props {}
 
 function Projects(props: Props) {
   const {} = props;
-  const divRef = useRef<HTMLDivElement>(null);
+  const divRef01 = useRef<HTMLDivElement>(null);
+  const divRef02 = useRef<HTMLDivElement>(null);
   const { projects, mainProjects } = useDataContext();
 
   const imgs = projects
@@ -26,14 +27,40 @@ function Projects(props: Props) {
     <div>
       <div className="ml-4">Projects</div>
 
-      <div className="flex max-w-screen w-screen">
-        <div className="bg-blue-300 w-[calc(100vw-200px)]" ref={divRef}>
-          <ImageGrid2 gridTemplatesObj={schemaX} images={imgs.slice(50, 60)} containerRef={divRef} gap={10} />
-        </div>
+      <div className="flex">
         <div className="bg-red-300 w-[200px]">
           <div>blah blah blah blah</div>
           <div>blah blah blah blah</div>
-          <div>blah blah blah blah blah blah blah blah</div>
+          <div>blah blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+        </div>
+
+        <div className="flex items-center bg-blue-300 w-[calc(100vw-200px)]" ref={divRef01}>
+          <ImageGrid2 gridTemplatesObj={schemaX} images={imgs.slice(50, 60)} containerRef={divRef01} gap={10} />
+        </div>
+      </div>
+
+      <div className="flex">
+        <div className="flex items-center bg-blue-300 w-[calc(100vw-400px)]" ref={divRef02}>
+          <ImageGrid2 gridTemplatesObj={schemaX} images={imgs.slice(50, 60)} containerRef={divRef02} gap={10} />
+        </div>
+
+        <div className="bg-red-300 w-[400px]">
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
+          <div>blah blah blah blah</div>
           <div>blah blah blah blah</div>
           <div>blah blah blah blah</div>
           <div>blah blah blah blah</div>

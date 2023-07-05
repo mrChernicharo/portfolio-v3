@@ -39,7 +39,7 @@ export default function ProjectDisplay({ project, isEven = false }: Props) {
   return (
     <div className="max-w-screen">
       {isEven ? (
-        <div className="w-0 h-0 border-b-[100px] border-b-primary border-l-[100vw] border-l-transparent"></div>
+        <div className="w-0 h-0 border-b-[100px] border-b-primary border-l-[calc(100vw-13px)] border-l-transparent"></div>
       ) : null}
       <div className={classNames("grid grid-cols-2 border", `${isEven ? "bg-primary" : "bg-secondary"}`)}>
         <section>
@@ -68,7 +68,7 @@ export default function ProjectDisplay({ project, isEven = false }: Props) {
         </section>
       </div>
       {!isEven ? (
-        <div className="w-0 h-0 -mb-20 border-t-[100px] border-t-secondary border-r-[100vw] border-r-transparent"></div>
+        <div className="w-0 h-0 -mb-20 border-t-[100px] border-t-secondary border-r-[calc(100vw-13px)] border-r-transparent"></div>
       ) : null}
     </div>
   );

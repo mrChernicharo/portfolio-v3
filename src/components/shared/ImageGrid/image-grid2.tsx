@@ -13,6 +13,7 @@ interface Props {
   imgHeight?: number;
   imgWidth?: number;
   gap?: number;
+  padding?: number;
 }
 
 // export type GridArea = {
@@ -25,7 +26,14 @@ interface Props {
 
 // export type GridImageArea = GridArea & { url: string; mini_url: string; width: number; height: number };
 
-export default function ImageGrid2({ images, gridTemplatesObj, containerRef, className = "", gap = 20 }: Props) {
+export default function ImageGrid2({
+  images,
+  gridTemplatesObj,
+  containerRef,
+  className = "",
+  gap = 20,
+  padding = 10,
+}: Props) {
   const { rect, element } = useParentContainer(containerRef);
 
   if (!rect?.width) return null;
@@ -54,8 +62,8 @@ export default function ImageGrid2({ images, gridTemplatesObj, containerRef, cla
   const gridCols = gridTemplatesObj[breakpoint][0].split(" ").length;
 
   const [imgWidth, imgHeight] = [
-    (rect.width - (gridCols - 1) * gap) / gridCols,
-    (rect.height - (gridRows - 1) * gap) / gridRows,
+    (rect.width - (gridCols - 1) * gap - padding * 2) / gridCols,
+    (rect.height - (gridRows - 1) * gap - padding * 2) / gridRows,
   ];
 
   for (const [k, gridTemplate] of Object.entries(gridTemplatesObj)) {
