@@ -2,25 +2,13 @@ import { useFetch } from "../useFetch";
 import { Job, Skill } from "../helpers/types";
 import { useDataContext } from "../context/DataContext";
 import { mainProjSkillNames } from "../helpers/constants";
+import ProjectDisplay from "../components/shared/ProjectDisplay/project-display";
 
 interface Props {}
 
 function About(props: Props) {
   const {} = props;
   const { jobs, skills, mainProjects } = useDataContext();
-
-  // const skillsObj = skills.reduce((acc, next) => {
-  //   acc[next.name] = next;
-  //   return acc;
-  // }, {} as Record<string, Skill>);
-
-  // Object.entries(mainProjSkillNames).forEach(([projName, skills]) => {
-  //   skills.forEach((skillName) => {
-  //     console.log({ skillObj: skillsObj[skillName] });
-  //   });
-
-  //   console.log({ projName, skills });
-  // });
 
   return (
     <div>

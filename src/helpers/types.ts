@@ -51,8 +51,6 @@ export interface Skill {
 export interface AppImage {
   url: string;
   mini_url: string;
-  width?: number;
-  height?: number;
 }
 
 export type GridArea = {

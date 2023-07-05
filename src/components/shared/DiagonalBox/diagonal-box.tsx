@@ -6,21 +6,21 @@ interface Props {
   children: ReactNode;
   className?: string;
   ascending?: boolean;
-  slope?: number;
+  angle?: number;
 }
 
-function DiagonalBox({ children, className = "", ascending = true, slope = 8 }: Props) {
+function DiagonalBox({ children, className = "", angle = 8 }: Props) {
   return (
     <div
       className={classNames("diagonal-box max-w-screen", className)}
       style={{
-        transform: `skewY(${ascending ? `-${slope}deg` : `${slope}deg`})`,
+        transform: `skewY(${-angle}deg)`,
       }}
     >
       <div
         className="content mx-auto"
         style={{
-          transform: `skewY(${ascending ? `${slope}deg` : `-${slope}deg`})`,
+          transform: `skewY(${angle}deg)`,
         }}
       >
         <div className="flex flex-col items-center justify-center">{children}</div>

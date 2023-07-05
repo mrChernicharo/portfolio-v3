@@ -16,15 +16,14 @@ const WorkExperience = () => {
           return (
             <DiagonalBox
               key={job.id}
-              slope={6}
-              ascending={isEven}
+              angle={isEven ? 6 : -6}
               className={`p-8 mb-16 ${isEven ? "bg-secondary" : "bg-primary"}`}
             >
               <div
                 key={job.id}
                 className={`flex flex-col text-primary-content ${isEven ? "items-end" : "items-start"}`}
               >
-                <div className="w-full flex items-center justify-between">
+                <div className="w-full flex flex-col md:flex-row items-center justify-between">
                   <h1 className="text-[4rem] font-bold mt-2">{job.company}</h1>
                   <img className="h-[60px] rounded-lg" src={job.company_img_url} />
                 </div>

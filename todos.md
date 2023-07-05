@@ -10,3 +10,6 @@
   - image grid ✅
   - skew display ✅
   - footer ✅
+- create useParentContainer hook
+  - use it to enhance imageGrid
+- use css tan to position containers inside diagonal div
