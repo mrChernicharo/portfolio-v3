@@ -30,12 +30,12 @@ export function useScreenWidth() {
     setBreakpoint(getBreakpoint(window.innerWidth));
   }, 500);
 
-  useEffect(() => {
-    console.log({ width });
-  }, [width]);
-  useEffect(() => {
-    console.log({ breakpoint });
-  }, [breakpoint]);
+  // useEffect(() => {
+  //   console.log({ width });
+  // }, [width]);
+  // useEffect(() => {
+  //   console.log({ breakpoint });
+  // }, [breakpoint]);
 
   useEffect(() => {
     window.addEventListener("resize", handleResize);

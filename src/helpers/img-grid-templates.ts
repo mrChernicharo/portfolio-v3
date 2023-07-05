@@ -1,3 +1,5 @@
+import { template } from "lodash-es";
+
 const schema01 = {
   xl: ["A A B B", "A A C C", "D D D E", "D D D F", "G H I F", "J J K K"],
   lg: ["A A B", "D C C", "E F G", "H I I", "J K K"],
@@ -47,4 +49,11 @@ export const template03 = {
   md: skewDisplaySchema.sm,
   sm: skewDisplaySchema.sm,
   xs: skewDisplaySchema.sm,
+};
+
+export const schemaX = {
+  768: ["A A A B", "A A A C", "D E F F"],
+  640: ["A A B", "A A C", "D E F"],
+  475: ["A A", "B C", "D D", "E F"],
+  230: ["A", "B", "C", "D", "E", "F"],
 };

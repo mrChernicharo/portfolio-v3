@@ -4,6 +4,7 @@
 
 body {
   font-size: min(calc(2vw + 6px), 18px);
+  /* overflow-x: hidden; */
 }
 
 .h1-text {

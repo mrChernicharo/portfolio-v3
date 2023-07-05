@@ -1,6 +1,8 @@
+import { useEffect, useRef } from "react";
 import { template03 } from "../../../helpers/img-grid-templates";
 import { classNames, getMiniUrl } from "../../../helpers/shared.helpers";
 import { MainProject } from "../../../helpers/types";
+import { useParentContainer } from "../../../hooks/useParentContainer";
 import { useScreenWidth } from "../../../hooks/useScreenWidth";
 import { EnhancedImage } from "../EnhancedImage/enhanced-image";
 import ImageGrid from "../ImageGrid/image-grid";
@@ -12,6 +14,7 @@ interface Props {
 }
 
 export default function ProjectDisplay({ project, isEven = false }: Props) {
+  const divRef = useRef<HTMLDivElement>(null);
   const {
     name,
     skills,
@@ -26,10 +29,15 @@ export default function ProjectDisplay({ project, isEven = false }: Props) {
     video_url,
   } = project;
 
-  const {} = useScreenWidth();
+  const { breakpoint } = useScreenWidth();
+  const { rect: parentRect } = useParentContainer(divRef);
+
+  // useEffect(() => {
+  //   console.log({ parentRectW: parentRect?.width, divParent: divRef.current?.parentElement });
+  // }, [parentRect]);
 
   return (
-    <>
+    <div className="max-w-screen">
       {isEven ? (
         <div className="w-0 h-0 border-b-[100px] border-b-primary border-l-[100vw] border-l-transparent"></div>
       ) : null}
@@ -46,20 +54,22 @@ export default function ProjectDisplay({ project, isEven = false }: Props) {
           <div className="">{description}</div>
         </section>
 
-        <section className="border justify-self-end">
-          <div className="imgs-container">
-            <ImageGrid
+        {/* <section className="border justify-self-end"> */}
+        <section className="border ">
+          <div className="imgs-container" ref={divRef}>
+            <p>fasjkflash</p>
+            {/* <ImageGrid
               images={image_urls.map((url) => ({ url, mini_url: getMiniUrl(url) }))}
               imgHeight={100}
               imgWidth={150}
               gridTemplatesObj={template03}
-            />
+            /> */}
           </div>
         </section>
       </div>
       {!isEven ? (
         <div className="w-0 h-0 -mb-20 border-t-[100px] border-t-secondary border-r-[100vw] border-r-transparent"></div>
       ) : null}
-    </>
+    </div>
   );
 }

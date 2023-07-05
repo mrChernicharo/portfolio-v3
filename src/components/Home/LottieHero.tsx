@@ -24,7 +24,7 @@ function LottieHero(props: Props) {
       </section>
 
       <section>
-        <Lottie animationData={TechGuyAnim} loop={true} />
+        <Lottie animationData={TechGuyAnim} loop={true} style={{ maxWidth: "700px" }} />
       </section>
     </div>
   );
