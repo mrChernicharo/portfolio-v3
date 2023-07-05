@@ -1,5 +1,6 @@
 import { parseGithubUrl } from "../../helpers/shared.helpers";
 import { Project } from "../../helpers/types";
+import { useScreenWidth } from "../../hooks/useScreenWidth";
 import { Card } from "./Card";
 
 interface Props {
@@ -9,9 +10,10 @@ interface Props {
 
 function ProjectCard(props: Props) {
   const { project, imageUrl } = props;
+  const { width: screenWidth } = useScreenWidth();
 
   return (
-    <Card>
+    <Card width={320}>
       <figure>
         <img src={imageUrl} alt={imageUrl} width={96 * 4} />
       </figure>

@@ -7,7 +7,7 @@ function Contact(props: Props) {
 
   return (
     <div className="min-h-[80vh]">
-      <h1 className="text-[4rem] font-bold -my-2">Send me a Message</h1>
+      <h1 className="h1-text -my-2">Send me a Message</h1>
 
       <form className="p-8 my-4 bg-base-200">
         <div>Name</div>

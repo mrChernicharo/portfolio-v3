@@ -24,7 +24,7 @@ const WorkExperience = () => {
                 className={`flex flex-col text-primary-content ${isEven ? "items-end" : "items-start"}`}
               >
                 <div className="w-full flex flex-col md:flex-row items-center justify-between">
-                  <h1 className="text-[4rem] font-bold mt-2">{job.company}</h1>
+                  <h1 className="h1-text mt-2">{job.company}</h1>
                   <img className="h-[60px] rounded-lg" src={job.company_img_url} />
                 </div>
                 <h4 className="text-gray-400 pt-4 pb-8">{job.company_address}</h4>

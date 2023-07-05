@@ -24,9 +24,11 @@ const Home: React.FunctionComponent = () => {
     <div>
       <LottieHero />
 
-      <TypingAnimation />
+      {/* <TypingAnimation /> */}
 
       {/* <SomeDevices /> */}
+      <hr />
+      <div>Why me?</div>
 
       <DiagonalBox className="text-primary-content bg-gradient-to-bl from-primary to-secondary">
         <HomeHero />
@@ -50,11 +52,10 @@ const Home: React.FunctionComponent = () => {
 
       <hr />
       <WorkExperience />
-      <hr />
-      <div>Why me?</div>
+
       <hr />
       <div>
-        <h1 className="text-[4rem] font-bold mt-2">Achievements</h1>
+        <h1 className="h1-text mt-2">Achievements</h1>
 
         <ul>
           <li>

@@ -5,3 +5,8 @@
 body {
   font-size: min(calc(2vw + 6px), 18px);
 }
+
+.h1-text {
+  font-size: min(calc(4vw + 16px), 4rem);
+  font-weight: bold;
+}

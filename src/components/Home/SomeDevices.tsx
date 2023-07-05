@@ -43,7 +43,7 @@ export default function SomeDevices(props: Props) {
         <iframe width={376} height={670} src="https://embed.lottiefiles.com/animation/95387"></iframe>
       </DeviceFrameset>
       <DeviceFrameset device="iPhone 8" color="gold">
-        <h1 className="text-[4rem] font-bold -my-2 text-center">Welcome!</h1>
+        <h1 className="h1-text -my-2 text-center">Welcome!</h1>
         <div>Hello world</div>
         <ImageGrid
           className="bg-base-300"
