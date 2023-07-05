@@ -13,7 +13,7 @@ export function NavBar() {
         {screenWidth > 600 ? (
           <div>
             {APP_LINKS.map(({ label, to }) => (
-              <Link to={to}>
+              <Link key={label} to={to}>
                 <span className="mx-2">{label}</span>
               </Link>
             ))}

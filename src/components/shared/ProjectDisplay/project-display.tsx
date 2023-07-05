@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 import { template03 } from "../../../helpers/img-grid-templates";
 import { classNames, getMiniUrl } from "../../../helpers/shared.helpers";
 import { MainProject } from "../../../helpers/types";
-import { useParentContainer } from "../../../hooks/useParentContainer";
 import { useScreenWidth } from "../../../hooks/useScreenWidth";
 import { EnhancedImage } from "../EnhancedImage/enhanced-image";
 import ImageGrid from "../ImageGrid/image-grid";
@@ -28,13 +27,6 @@ export default function ProjectDisplay({ project, isEven = false }: Props) {
     image_urls = [],
     video_url,
   } = project;
-
-  const { breakpoint } = useScreenWidth();
-  const { rect: parentRect } = useParentContainer(divRef);
-
-  // useEffect(() => {
-  //   console.log({ parentRectW: parentRect?.width, divParent: divRef.current?.parentElement });
-  // }, [parentRect]);
 
   return (
     <div className="max-w-screen">

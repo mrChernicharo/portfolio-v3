@@ -1,19 +1,30 @@
 import { throttle } from "lodash-es";
-import { RefObject, useEffect, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
 
 export function useParentContainer(elementRef: RefObject<HTMLElement>) {
   const [rect, setRect] = useState<DOMRect | null>(null);
-  const [element, setElement] = useState<HTMLElement | null>(null);
+  const timeout = useRef<NodeJS.Timeout>();
+
+  const updateRect = () => {
+    if (!elementRef.current?.getBoundingClientRect) return;
+    setRect(elementRef.current.getBoundingClientRect());
+  };
 
   const handleResize = throttle(() => {
-    if (!elementRef.current?.getBoundingClientRect) return;
+    updateRect();
+    clearTimeout(timeout.current);
 
-    if (!element) {
-      setElement(elementRef.current);
+    let i = 0;
+    while (i < 16) {
+      const delay = i * 10;
+      timeout.current = setTimeout(updateRect, delay);
+      i++;
     }
+  }, 200);
 
-    setRect(elementRef.current.getBoundingClientRect());
-  }, 500);
+  // useEffect(() => {
+  //   console.log(rect?.width);
+  // }, [rect]);
 
   useEffect(() => {
     handleResize();
@@ -24,5 +35,5 @@ export function useParentContainer(elementRef: RefObject<HTMLElement>) {
     };
   }, []);
 
-  return { element, rect };
+  return { rect };
 }

@@ -8,6 +8,7 @@ import ProjectDisplay from "../components/shared/ProjectDisplay/project-display"
 import ImageGrid2 from "../components/shared/ImageGrid/image-grid2";
 import { schemaX, template03 } from "../helpers/img-grid-templates";
 import { getMiniUrl } from "../helpers/shared.helpers";
+import TextImageComboBox from "../components/shared/TextImageComboBox/text-image-combo-box";
 
 interface Props {}
 
@@ -27,51 +28,16 @@ function Projects(props: Props) {
     <div>
       <div className="ml-4">Projects</div>
 
-      <div className="flex">
-        <div className="bg-red-300 w-[200px]">
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-        </div>
+      <TextImageComboBox images={imgs.slice(64, 70)} />
 
-        <div className="flex items-center bg-blue-300 w-[calc(100vw-200px)]" ref={divRef01}>
-          <ImageGrid2 gridTemplatesObj={schemaX} images={imgs.slice(50, 60)} containerRef={divRef01} gap={10} />
-        </div>
-      </div>
+      <h1>Yes sir,</h1>
+      <h1>I can handle complex layouts!</h1>
 
-      <div className="flex">
-        <div className="flex items-center bg-blue-300 w-[calc(100vw-400px)]" ref={divRef02}>
-          <ImageGrid2 gridTemplatesObj={schemaX} images={imgs.slice(50, 60)} containerRef={divRef02} gap={10} />
-        </div>
+      <TextImageComboBox images={imgs.slice(50, 60)} />
 
-        <div className="bg-red-300 w-[400px]">
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-          <div>blah blah blah blah</div>
-        </div>
-      </div>
-
-      {mainProjects.map((proj, i) => (
-        <ProjectDisplay key={proj.id} project={proj} isEven={i % 2 == 0} />
-      ))}
+      {/* {mainProjects.map((proj, i) => (
+        <ProjectDisplay key={`proj-${proj.id}-${i}`} project={proj} isEven={i % 2 == 0} />
+      ))} */}
       <SomeProjects count={100} />
     </div>
   );

@@ -34,7 +34,7 @@ export default function ImageGrid2({
   gap = 20,
   padding = 10,
 }: Props) {
-  const { rect, element } = useParentContainer(containerRef);
+  const { rect } = useParentContainer(containerRef);
 
   if (!rect?.width) return null;
 
@@ -77,18 +77,6 @@ export default function ImageGrid2({
   }
   const grid = gridAreas[breakpoint];
 
-  console.log({
-    gridAreas,
-    gridTemplatesObj,
-    breakpoint,
-    grid,
-    gridCols,
-    imgWidth,
-    imgHeight,
-    rectWidth: rect.width,
-    rectHeight: rect.height,
-    element,
-  });
   return (
     <div
       className={classNames(`image-grid mx-auto rounded-lg`, className)}
