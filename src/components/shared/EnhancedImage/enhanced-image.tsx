@@ -4,8 +4,8 @@ import "./enhanced-image.scss";
 interface EnhancedImageProps {
   url: string;
   miniUrl: string;
-  width?: number;
-  height?: number;
+  width?: number | string;
+  height?: number | string;
 }
 
 export function EnhancedImage({ url, miniUrl, width = 300, height = 200 }: EnhancedImageProps) {

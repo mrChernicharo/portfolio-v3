@@ -35,7 +35,7 @@ function Projects(props: Props) {
         images={imgs.slice(64, 70)}
         schema={schemaX}
         title="Hello world"
-        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore culpa amet obcaecati"
+        body="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ex ea veritatis odio eos nihil repellat, sequi repudiandae quis necessitatibus numquam praesentium molestiae veniam commodi, recusandae, mollitia excepturi aspernatur facere"
       />
 
       <h1>Yes sir,</h1>

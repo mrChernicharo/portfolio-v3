@@ -57,3 +57,13 @@ export const schemaX = {
   475: ["A A", "B C", "D D", "E F"],
   230: ["A", "B", "C", "D", "E", "F"],
 };
+
+export const templateX = {
+  "3xl": schemaX[768],
+  "2xl": schemaX[768],
+  xl: schemaX[640],
+  lg: schemaX[640],
+  md: schemaX[475],
+  sm: schemaX[475],
+  xs: schemaX[230],
+};
