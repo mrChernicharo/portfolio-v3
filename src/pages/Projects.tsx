@@ -9,6 +9,7 @@ import ImageGrid2 from "../components/shared/ImageGrid/image-grid2";
 import { schemaX, template03 } from "../helpers/img-grid-templates";
 import { getMiniUrl } from "../helpers/shared.helpers";
 import TextImageComboBox from "../components/shared/TextImageComboBox/text-image-combo-box";
+import TextImageComboBox2 from "../components/shared/TextImageComboBox/text-image-combo-box2";
 
 interface Props {}
 
@@ -28,12 +29,19 @@ function Projects(props: Props) {
     <div>
       <div className="ml-4">Projects</div>
 
-      <TextImageComboBox images={imgs.slice(64, 70)} />
+      {/* <TextImageComboBox images={imgs.slice(64, 70)} /> */}
+
+      <TextImageComboBox2
+        images={imgs.slice(64, 70)}
+        schema={schemaX}
+        title="Hello world"
+        body="Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tempore culpa amet obcaecati"
+      />
 
       <h1>Yes sir,</h1>
       <h1>I can handle complex layouts!</h1>
 
-      <TextImageComboBox images={imgs.slice(50, 60)} />
+      {/* <TextImageComboBox images={imgs.slice(50, 60)} /> */}
 
       {/* {mainProjects.map((proj, i) => (
         <ProjectDisplay key={`proj-${proj.id}-${i}`} project={proj} isEven={i % 2 == 0} />
