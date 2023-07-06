@@ -92,7 +92,7 @@ export default function ImageGrid2({
     >
       {grid.map((cell, i) => {
         return (
-          <div key={cell.name} className="bg-red-500" style={{ gridArea: cell.name }}>
+          <div key={cell.name} style={{ gridArea: cell.name }}>
             <EnhancedImage url={cell.url} miniUrl={cell.mini_url} width={cell.width} height={cell.height} />
           </div>
         );

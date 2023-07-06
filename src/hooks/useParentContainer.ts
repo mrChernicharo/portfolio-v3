@@ -15,7 +15,7 @@ export function useParentContainer(elementRef: RefObject<HTMLElement>) {
     clearTimeout(timeout.current);
 
     let i = 0;
-    while (i < 16) {
+    while (i < 136) {
       const delay = i * 10;
       timeout.current = setTimeout(updateRect, delay);
       i++;
