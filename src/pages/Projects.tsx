@@ -15,8 +15,6 @@ interface Props {}
 
 function Projects(props: Props) {
   const {} = props;
-  const divRef01 = useRef<HTMLDivElement>(null);
-  const divRef02 = useRef<HTMLDivElement>(null);
   const { projects, mainProjects } = useDataContext();
 
   const imgs = projects
@@ -29,8 +27,6 @@ function Projects(props: Props) {
     <div>
       <div className="ml-4">Projects</div>
 
-      {/* <TextImageComboBox images={imgs.slice(64, 70)} /> */}
-
       <TextImageComboBox2
         images={imgs.slice(64, 70)}
         schema={schemaX}
@@ -39,13 +35,15 @@ function Projects(props: Props) {
       />
 
       <h1>Yes sir,</h1>
-      <h1>I can handle complex layouts!</h1>
+      <h1>I can handle pretty complex layouts!</h1>
 
-      {/* <TextImageComboBox images={imgs.slice(50, 60)} /> */}
+      <TextImageComboBox2
+        images={imgs.slice(64, 70)}
+        schema={schemaX}
+        title="Hello world"
+        body="Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cum ex ea veritatis odio eos nihil repellat, sequi repudiandae quis necessitatibus numquam praesentium molestiae veniam commodi, recusandae, mollitia excepturi aspernatur facere"
+      />
 
-      {/* {mainProjects.map((proj, i) => (
-        <ProjectDisplay key={`proj-${proj.id}-${i}`} project={proj} isEven={i % 2 == 0} />
-      ))} */}
       <SomeProjects count={100} />
     </div>
   );

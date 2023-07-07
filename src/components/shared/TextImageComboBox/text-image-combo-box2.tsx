@@ -41,39 +41,25 @@ export default function TextImageComboBox2({ images, schema, title, body }: Prop
   }, [breakpoint]);
 
   return (
-    <div className="bg-blue-800 p-4 max-w-screen">
-      <div className="bg-blue-700 p-4 flex h-[400px] mx-auto" style={{ maxWidth: maxWidths[breakpoint] }}>
-        <div className="bg-blue-600 overflow-hidden pr-4" style={{ width: textContentWidth[breakpoint] }}>
+    <div className="p-4 max-w-screen">
+      <div
+        className="p-4 bg-primary text-primary-content flex h-[400px] mx-auto"
+        style={{ maxWidth: maxWidths[breakpoint] }}
+      >
+        <div className="overflow-hidden pr-4" style={{ width: textContentWidth[breakpoint] }}>
           <h1 className="h2-text leading-none">{title}</h1>
           <p>{body}</p>
         </div>
 
         {["xs"].includes(breakpoint) ? null : (
-          <div className="bg-blue-500 flex-1 shrink">
-            <ImgGridWrapper />
-            {/* {["sm"].includes(breakpoint) && <Sm />}
-            {["md"].includes(breakpoint) && <Md />}
-            {["lg"].includes(breakpoint) && <Lg />}
-            {["xl", "2xl", "3xl"].includes(breakpoint) && <Xl />} */}
+          <div className="flex-1 shrink">
+            <ImageGrid3 gridSchema={schema} images={images} />
           </div>
         )}
       </div>
     </div>
   );
 }
-
-const ImgGridWrapper = () => {
-  const { mainProjects } = useDataContext();
-
-  if (!mainProjects) return null;
-
-  return (
-    <ImageGrid3
-      gridSchema={schemaX}
-      images={(mainProjects?.[0]?.image_urls || []).map((url) => ({ url, mini_url: getMiniUrl(url) }))}
-    />
-  );
-};
 
 const Sm = () => (
   <div className="bg-blue-400 p-4 grid grid-cols-1 h-full">

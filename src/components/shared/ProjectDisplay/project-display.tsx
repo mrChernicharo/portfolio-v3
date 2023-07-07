@@ -50,12 +50,6 @@ export default function ProjectDisplay({ project, isEven = false }: Props) {
         <section className="border ">
           <div className="imgs-container" ref={divRef}>
             <p>fasjkflash</p>
-            {/* <ImageGrid
-              images={image_urls.map((url) => ({ url, mini_url: getMiniUrl(url) }))}
-              imgHeight={100}
-              imgWidth={150}
-              gridTemplatesObj={template03}
-            /> */}
           </div>
         </section>
       </div>

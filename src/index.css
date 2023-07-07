@@ -7,16 +7,19 @@
 }
 
 body {
-  font-size: min(calc(2vw + 6px), 18px);
+  /* font-size: min(calc(2vw + 6px), 18px); */
+  font-size: 14px;
   /* overflow-x: hidden; */
 }
 
 .h1-text {
-  font-size: min(calc(4vw + 16px), 4rem);
+  font-size: 3rem;
+  /* font-size: min(calc(4vw + 16px), 4rem); */
   font-weight: bold;
 }
 
 .h2-text {
-  font-size: min(calc(4vw + 12px), 3rem);
+  font-size: 2rem;
+  /* font-size: min(calc(4vw + 12px), 3rem); */
   font-weight: bold;
 }

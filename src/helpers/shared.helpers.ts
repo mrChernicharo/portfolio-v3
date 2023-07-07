@@ -6,6 +6,8 @@ export const parseGithubUrl = (url: string) => url.replace("https://api.github.c
 
 export const getMiniUrl = (url: string) => url.replace("images", "thumbs");
 
+export const parseImgs = (imgs: string[]) => imgs.map((url) => ({ url, mini_url: getMiniUrl(url) }));
+
 export function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(" ");
 }
