@@ -1,9 +1,7 @@
-import { useFetch } from "../useFetch";
-import { Job, Skill } from "../helpers/types";
 import { useDataContext } from "../context/DataContext";
-import { mainProjSkillNames } from "../helpers/constants";
-import ProjectDisplay from "../components/shared/ProjectDisplay/project-display";
-import WorkExperience from "../components/Home/WorkExperience";
+import WorkExperience from "../components/About/WorkExperience";
+import Lettering from "../components/About/Lettering";
+import Skills from "../components/About/Skills";
 
 interface Props {}
 
@@ -13,21 +11,12 @@ function About(props: Props) {
 
   return (
     <div>
-      Hello about!
 
+      <Lettering />
 
       <WorkExperience />
 
-  
-      <h1>Skills</h1>
-      <ul>
-        {skills.map((skill) => (
-          <li key={skill.id}>
-            <div>{skill.name}</div>
-            <img src={skill.image_url} width={24} height={24} />
-          </li>
-        ))}
-      </ul>
+      <Skills />
     </div>
   );
 }

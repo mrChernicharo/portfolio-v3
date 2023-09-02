@@ -1,7 +1,7 @@
 import TypingAnimation from "../components/Home/TypingAnimation";
 import HomeHero from "../components/Home/HomeHero";
 import SomeProjects from "../components/Home/SomeProjects";
-import WorkExperience from "../components/Home/WorkExperience";
+import WorkExperience from "../components/About/WorkExperience";
 import ImageGrid from "../components/shared/ImageGrid/image-grid";
 import { useDataContext } from "../context/DataContext";
 import { AppImage } from "../helpers/types";
@@ -10,6 +10,8 @@ import { template01, template02, template03 } from "../helpers/img-grid-template
 import DiagonalBox from "../components/shared/DiagonalBox/diagonal-box";
 import SomeDevices from "../components/Home/SomeDevices";
 import LottieHero from "../components/Home/LottieHero";
+import About from "./About";
+import Projects from "./Projects";
 
 const Home: React.FunctionComponent = () => {
   const { projects } = useDataContext();
@@ -24,35 +26,56 @@ const Home: React.FunctionComponent = () => {
     <div>
       <LottieHero />
 
-      {/* <TypingAnimation /> */}
-
-      {/* <SomeDevices /> */}
-      <hr />
-      <div>Why me?</div>
-
       <DiagonalBox className="text-primary-content bg-gradient-to-bl from-primary to-secondary">
         <HomeHero />
       </DiagonalBox>
 
-      <SomeProjects />
+      <div className="h-8"></div>
+      <div className="h-8"></div>
+      <div className="h-8"></div>
 
-      {imgs?.length > 50 && (
-        <>
+
+      <div className="h-8"></div>
+      <div className="h-8"></div>
+      <div className="h-8"></div>
+
+
+      <About />
+
+
+      {/* <TypingAnimation /> */}
+
+      {/* <SomeDevices /> */}
+
+      {/* <div>Why me?</div> */}
+
+      {/* <div className="border border-solid h-8"></div> */}
+
+
+      {/* <SomeProjects /> */}
+
+
+      {/* <div className="text-center">
+        <h1 className="h1-text">Yo, get some grids!</h1>
+      </div> */}
+
+      {/* <div>
+        {imgs?.length > 50 && (
           <ImageGrid
             className="bg-base-300 my-12"
             images={imgs?.slice(36, 38)}
             gridTemplatesObj={template01}
-            imgHeight={50}
-            imgWidth={140}
+            imgHeight={150}
+            imgWidth={240}
             gap={10}
           />
-          <ImageGrid className="bg-base-300" images={imgs?.slice(43, 50)} gridTemplatesObj={template02} />
-        </>
-      )}
+        )}
+      </div>
 
-      <hr />
+      <div>{imgs?.length > 50 && <ImageGrid className="bg-base-300" images={imgs?.slice(43, 50)} gridTemplatesObj={template02} />}</div> */}
 
-      <hr />
+
+      {/* 
       <div>
         <h1 className="h1-text mt-2">Achievements</h1>
 
@@ -73,44 +96,7 @@ const Home: React.FunctionComponent = () => {
           <li>course certificates</li>
           <li>spoken languages</li>
         </ul>
-      </div>
-      <hr />
-
-      {/* <DiagonalBox ascending={false} className="text-base-content bg-gradient-to-bl from-info-content to-info">
-      </DiagonalBox> */}
-
-      {/* <DiagonalBox className="overflow-hidden text-base-content bg-gradient-to-bl from-success to-success-content">
-        <div className="grid">
-          <h1 className="font-bold text-[96px]">Abrakadabra</h1>
-
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
-
-          <h1 className="font-bold text-[96px]">Abrakadabra</h1>
-
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
-
-          <h1 className="font-bold text-[96px]">Abrakadabra</h1>
-
-          <ImageGrid
-            images={imgs?.slice(36, 38)}
-            gridTemplatesObj={template03}
-            imgHeight={100}
-            imgWidth={200}
-            gap={10}
-          />
-        </div>
-      </DiagonalBox> */}
-
-      {/* <DiagonalBox className="text-base-content bg-gradient-to-bl from-primary to-secondary">
-        <h1 className="font-bold text-[96px]">Abrakadabra</h1>
-        <div>
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
-          <h2 className="text-[36px]">some h2 text</h2>
-        </div>
-      </DiagonalBox> */}
+      </div> */}
     </div>
   );
 };
