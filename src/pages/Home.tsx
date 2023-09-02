@@ -51,7 +51,6 @@ const Home: React.FunctionComponent = () => {
       )}
 
       <hr />
-      <WorkExperience />
 
       <hr />
       <div>

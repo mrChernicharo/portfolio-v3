@@ -43,78 +43,76 @@ export default function TextImageComboBox2({ images, schema, title, body }: Prop
   return (
     <div className="p-4 max-w-screen">
       <div
-        className="p-4 bg-primary text-primary-content flex h-[400px] mx-auto"
+        className={`p-4 bg-primary text-primary-content flex mx-auto ${["xs"].includes(breakpoint) ? "flex-col" : ""}`}
         style={{ maxWidth: maxWidths[breakpoint] }}
       >
         <div className="overflow-hidden pr-4" style={{ width: textContentWidth[breakpoint] }}>
-          <h1 className="h2-text leading-none">{title}</h1>
-          <p>{body}</p>
+          <h1 className="h2-text leading-none mb-2">{title}</h1>
+          <p className="mb-4">{body}</p>
         </div>
 
-        {["xs"].includes(breakpoint) ? null : (
-          <div className="flex-1 shrink">
-            <ImageGrid3 gridSchema={schema} images={images} />
-          </div>
-        )}
+        <div className="flex-1 shrink">
+          <ImageGrid3 gridSchema={schema} images={images} />
+        </div>
       </div>
     </div>
   );
 }
 
-const Sm = () => (
-  <div className="bg-blue-400 p-4 grid grid-cols-1 h-full">
-    <div className="bg-blue-100"></div>
+// const Sm = () => (
+//   <div className="bg-blue-400 p-4 grid grid-cols-1 h-full">
+//     <div className="bg-blue-100"></div>
 
-    <div className="bg-blue-200"></div>
+//     <div className="bg-blue-200"></div>
 
-    <div className="bg-blue-300"></div>
-  </div>
-);
+//     <div className="bg-blue-300"></div>
+//   </div>
+// );
 
-const Md = () => (
-  <div className="bg-blue-400 p-4 grid grid-cols-2 h-full">
-    <div className="bg-blue-100"></div>
-    <div className="bg-blue-200"></div>
+// const Md = () => (
+//   <div className="bg-blue-400 p-4 grid grid-cols-2 h-full">
+//     <div className="bg-blue-100"></div>
+//     <div className="bg-blue-200"></div>
 
-    <div className="bg-blue-200"></div>
-    <div className="bg-blue-300"></div>
+//     <div className="bg-blue-200"></div>
+//     <div className="bg-blue-300"></div>
 
-    <div className="bg-blue-300"></div>
-    <div className="bg-blue-100"></div>
-  </div>
-);
+//     <div className="bg-blue-300"></div>
+//     <div className="bg-blue-100"></div>
+//   </div>
+// );
 
-const Lg = () => (
-  <div className="bg-blue-400 p-4 grid grid-cols-3 h-full">
-    <div className="bg-blue-100"></div>
-    <div className="bg-blue-200"></div>
-    <div className="bg-blue-300"></div>
+// const Lg = () => (
+//   <div className="bg-blue-400 p-4 grid grid-cols-3 h-full">
+//     <div className="bg-blue-100"></div>
+//     <div className="bg-blue-200"></div>
+//     <div className="bg-blue-300"></div>
 
-    <div className="bg-blue-200"></div>
-    <div className="bg-blue-300"></div>
-    <div className="bg-blue-100"></div>
+//     <div className="bg-blue-200"></div>
+//     <div className="bg-blue-300"></div>
+//     <div className="bg-blue-100"></div>
 
-    <div className="bg-blue-300"></div>
-    <div className="bg-blue-100"></div>
-    <div className="bg-blue-200"></div>
-  </div>
-);
+//     <div className="bg-blue-300"></div>
+//     <div className="bg-blue-100"></div>
+//     <div className="bg-blue-200"></div>
+//   </div>
+// );
 
-const Xl = () => (
-  <div className="bg-blue-400 p-4 grid grid-cols-4 h-full">
-    <div className="bg-blue-100"></div>
-    <div className="bg-blue-200"></div>
-    <div className="bg-blue-300"></div>
-    <div className="bg-blue-100"></div>
+// const Xl = () => (
+//   <div className="bg-blue-400 p-4 grid grid-cols-4 h-full">
+//     <div className="bg-blue-100"></div>
+//     <div className="bg-blue-200"></div>
+//     <div className="bg-blue-300"></div>
+//     <div className="bg-blue-100"></div>
 
-    <div className="bg-blue-200"></div>
-    <div className="bg-blue-300"></div>
-    <div className="bg-blue-100"></div>
-    <div className="bg-blue-200"></div>
+//     <div className="bg-blue-200"></div>
+//     <div className="bg-blue-300"></div>
+//     <div className="bg-blue-100"></div>
+//     <div className="bg-blue-200"></div>
 
-    <div className="bg-blue-300"></div>
-    <div className="bg-blue-100 p-4"></div>
-    <div className="bg-blue-200"></div>
-    <div className="bg-blue-300"></div>
-  </div>
-);
+//     <div className="bg-blue-300"></div>
+//     <div className="bg-blue-100 p-4"></div>
+//     <div className="bg-blue-200"></div>
+//     <div className="bg-blue-300"></div>
+//   </div>
+// );

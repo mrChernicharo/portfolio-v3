@@ -6,7 +6,8 @@ const WorkExperience = () => {
 
   return (
     <div>
-      <h1>Work Experience</h1>
+      <h1 className="h1-text">Work Experience</h1>
+
 
       {jobs
         .sort((a, b) => new Date(b.started_at).getTime() - new Date(a.started_at).getTime())
